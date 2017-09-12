@@ -13,9 +13,9 @@ line_image = np.copy(image)
 
 # Define color selection criteria
 # MODIFY THESE VARIABLES TO MAKE YOUR COLOR SELECTION
-red_threshold = 225
-green_threshold = 0
-blue_threshold = 0
+red_threshold = 200
+green_threshold = 200
+blue_threshold = 200
 
 rgb_threshold = [red_threshold, green_threshold, blue_threshold]
 
@@ -24,8 +24,8 @@ rgb_threshold = [red_threshold, green_threshold, blue_threshold]
 # MODIFY THESE VALUES TO ISOLATE THE REGION 
 # WHERE THE LANE LINES ARE IN THE IMAGE
 left_bottom = [0, 539]
-right_bottom = [900, 300]
-apex = [400, 0]
+right_bottom = [900, 539]
+apex = [475, 320]
 
 # Perform a linear fit (y=Ax+B) to each of the three sides of the triangle
 # np.polyfit returns the coefficients [A, B] of the fit
@@ -56,3 +56,4 @@ y = [left_bottom[1], right_bottom[1], apex[1], left_bottom[1]]
 plt.plot(x, y, 'b--', lw=4)
 plt.imshow(color_select)
 plt.imshow(line_image)
+plt.show()
