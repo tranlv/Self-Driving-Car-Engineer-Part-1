@@ -1,4 +1,4 @@
-# Self-driving car projects
+# Autonomous vehicle projects
 The repo contains self-driving car projects
 
 # List of projects:
