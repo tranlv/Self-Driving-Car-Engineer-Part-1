@@ -6,16 +6,6 @@ import cv2
 import math
 import os
 
-os.listdir("test_images/")
-
-#reading in an image
-image = mpimg.imread('test_images/solidWhiteRight.jpg')
-
-#printing out some stats and plotting
-print('This image is:', type(image), 'with dimensions:', image.shape)
-plt.imshow(image)  # if you wanted to show a single color channel image called 'gray', for example, call as plt.imshow(gray, cmap='gray')
-
-
 
 def grayscale(img):
     """Applies the Grayscale transform
@@ -108,49 +98,61 @@ def weighted_img(img, initial_img, α=0.8, β=1., λ=0.):
     """
     return cv2.addWeighted(initial_img, α, img, β, λ)
 
+def main():
+	os.listdir("test_images/")
 
-# TODO: Build your pipeline that will draw lane lines on the test_images
-# then save them to the test_images directory.
-solidWhiteCurve = mpimg.imread('test_images/solidWhiteCurve.jpg')
+	#reading in an image
+	image = mpimg.imread('test_images/solidWhiteRight.jpg')
 
-# color selection
+	#printing out some stats and plotting
+	print('This image is:', type(image), 'with dimensions:', image.shape)
+	plt.imshow(image)  # if you wanted to show a single color channel image called 'gray', for example, call as plt.imshow(gray, cmap='gray')
+
+	# TODO: Build your pipeline that will draw lane lines on the test_images
+	# then save them to the test_images directory.
+	solidWhiteCurve = mpimg.imread('test_images/solidWhiteCurve.jpg')
+
+	# color selection
 
 
-#first grayscale the image
-solidWhiteCurve_gray = grayscale(solidWhiteCurve)
+	#first grayscale the image
+	solidWhiteCurve_gray = grayscale(solidWhiteCurve)
 
-#define a kernel size and apply gaussion smoothing
-kernel_size = 5
-solidWhiteCurve_gray_gaussian = gaussian_blur(solidWhiteCurve_gray, kernel_size)
+	#define a kernel size and apply gaussion smoothing
+	kernel_size = 5
+	solidWhiteCurve_gray_gaussian = gaussian_blur(solidWhiteCurve_gray, kernel_size)
 
-# Define our parameters for Canny and apply
-low_threshold = 50
-high_threshold = 150
-solidWhiteCurve_gray_gaussian_canny = canny(solidWhiteCurve_gray_gaussian, low_threshold, high_threshold)
+	# Define our parameters for Canny and apply
+	low_threshold = 50
+	high_threshold = 150
+	solidWhiteCurve_gray_gaussian_canny = canny(solidWhiteCurve_gray_gaussian, low_threshold, high_threshold)
 
-# This time we are defining a four sided polygon to mask
-imshape = image.shape
-vertices = np.array([[(0,imshape[0]),(450, 290), (490, 290), (imshape[1],imshape[0])]], dtype=np.int32)
-solidWhiteCurve_gray_gaussian_canny_masked = region_of_interest(solidWhiteCurve_gray_gaussian_canny, vertices)
+	# This time we are defining a four sided polygon to mask
+	imshape = image.shape
+	vertices = np.array([[(0,imshape[0]),(450, 290), (490, 290), (imshape[1],imshape[0])]], dtype=np.int32)
+	solidWhiteCurve_gray_gaussian_canny_masked = region_of_interest(solidWhiteCurve_gray_gaussian_canny, vertices)
 
-# Define the Hough transform parameters
-# Make a blank the same size as our image to draw on
-rho = 1                # distance resolution in pixels of the Hough grid
-theta = (np.pi)/180    # angular resolution in radians of the Hough grid
-threshold = 1          # minimum number of votes (intersections in Hough grid cell)
-min_line_len = 1       #minimum number of pixels making up a line
-max_line_gap = 50      # maximum gap in pixels between connectable line segments
-hough_lines = hough_lines(solidWhiteCurve_gray_gaussian_canny_masked, rho, theta, threshold, min_line_len, max_line_gap) 
+	# Define the Hough transform parameters
+	# Make a blank the same size as our image to draw on
+	rho = 1                # distance resolution in pixels of the Hough grid
+	theta = (np.pi)/180    # angular resolution in radians of the Hough grid
+	threshold = 1          # minimum number of votes (intersections in Hough grid cell)
+	min_line_len = 1       #minimum number of pixels making up a line
+	max_line_gap = 50      # maximum gap in pixels between connectable line segments
+	hough_lines = hough_lines(solidWhiteCurve_gray_gaussian_canny_masked, rho, theta, threshold, min_line_len, max_line_gap) 
 
-# Draw the lines on the edge image
-#lines_edges =  weighted_img(hough_lines, solidWhiteCurve, α=0.8, β=1., λ=0.) 
-cv2.imwrite('test_images_output/solidWhiteCurve.jpg', solidWhiteCurve)
+	# Draw the lines on the edge image
+	#lines_edges =  weighted_img(hough_lines, solidWhiteCurve, α=0.8, β=1., λ=0.) 
+	cv2.imwrite('test_images_output/solidWhiteCurve.jpg', solidWhiteCurve)
 
-images = [solidWhiteCurve, 
-          solidWhiteCurve_gray, 
-          solidWhiteCurve_gray_gaussian, 
-          solidWhiteCurve_gray_gaussian_canny,
-         solidWhiteCurve_gray_gaussian_canny_masked]
-for ima in images:
-    plt.figure()
-    plt.imshow(ima)
+	images = [solidWhiteCurve, 
+	          solidWhiteCurve_gray, 
+	          solidWhiteCurve_gray_gaussian, 
+	          solidWhiteCurve_gray_gaussian_canny,
+	         solidWhiteCurve_gray_gaussian_canny_masked]
+	for ima in images:
+	    plt.figure()
+	    plt.imshow(ima)
+
+if __name__ = "__main__":
+	main()
