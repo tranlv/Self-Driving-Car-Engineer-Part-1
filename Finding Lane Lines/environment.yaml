@@ -1,4 +1,4 @@
-name: carnd-term1
+name: finding-lane-lines
 channels:
 - menpo
 - conda-forge
@@ -134,5 +134,5 @@ dependencies:
   - tqdm==4.11.2
   - win-inet-pton==1.0.1
   - win-unicode-console==0.5
-prefix: C:\Users\AdminCOOP\Anaconda3\envs\carnd-term1
+prefix: C:\Users\AdminCOOP\Anaconda3\envs\finding-lane-lines
 
