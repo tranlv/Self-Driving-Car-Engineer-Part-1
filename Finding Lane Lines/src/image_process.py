@@ -5,7 +5,8 @@ import numpy as np
 import cv2
 import math
 import os
-
+from moviepy.editor import VideoFileClip
+from IPython.display import HTML
 
 def grayscale(img):
     """Applies the Grayscale transform
@@ -14,6 +15,16 @@ def grayscale(img):
     (assuming your grayscaled image is called 'gray')
     you should call plt.imshow(gray, cmap='gray')"""
     return cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+    # Or use BGR2GRAY if you read an image with cv2.imread()
+    # return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+def hsv_conversion(img):
+    """Applies the Grayscale transform
+    This will return an image with only one color channel
+    but NOTE: to see the returned image as grayscale
+    (assuming your grayscaled image is called 'gray')
+    you should call plt.imshow(gray, cmap='gray')"""
+    return cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
     # Or use BGR2GRAY if you read an image with cv2.imread()
     # return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     
@@ -98,61 +109,118 @@ def weighted_img(img, initial_img, α=0.8, β=1., λ=0.):
     """
     return cv2.addWeighted(initial_img, α, img, β, λ)
 
+def color_selection(image, r_threshold, g_threshold, b_threshold):
+
+    # Grab the x and y size and make a copy of the image
+    ysize = image.shape[0]
+    xsize = image.shape[1]
+    
+    ##color selection
+    color_select = np.copy(image)
+
+    # Define color selection criteria
+    red_threshold = r_threshold
+    green_threshold = g_threshold
+    blue_threshold =  b_threshold
+
+    rgb_threshold = [red_threshold, green_threshold, blue_threshold]
+
+    # Do a boolean or with the "|" character to identify
+    # pixels below the thresholds
+    thresholds = (image[:,:,0] < rgb_threshold[0]) \
+                | (image[:,:,1] < rgb_threshold[1]) \
+                | (image[:,:,2] < rgb_threshold[2])
+
+    color_select[thresholds] = [0,0,0]
+    
+     ##region selection
+    
+    return color_select
+
+ def pipeline_first_attempt(image):
+    #1. color selection
+    #2. grayscale 
+    #3. gaussian smoothing
+    #4. canny
+    #5. image mask
+    #6. Hough transform
+    
+    # color selection: white
+    img_white = color_selection(image, 200, 200, 200)
+    
+    # color selection: yellow
+    img_yellow = color_selection(image, 200, 200, 0)
+    
+    #convert to hsv
+    img_white_gray = grayscale(img_white)
+    
+    #define a kernel size and apply gaussion smoothing
+    kernel_size = 11
+    img_gaussian = gaussian_blur(img_white_gray, kernel_size)
+    
+    #canny edge detection
+    low_threshold = 50
+    high_threshold = 150
+    img_canny = canny(img_gaussian, low_threshold, high_threshold)
+    
+    # region of interest
+    imshape = image.shape
+    vertices = np.array([[(0,imshape[0]),
+                          (450, 290), 
+                          (490, 290), 
+                          (imshape[1],imshape[0])]], 
+                            dtype=np.int32)
+    img_region = region_of_interest(img_canny,vertices)
+
+    # Define the Hough transform parameters => output is matrix NxMxL
+    # Make a blank the same size as our image to draw on
+    rho = 2                 # distance resolution in pixels of the Hough grid
+    theta = (np.pi)/180     # angular resolution in radians of the Hough grid
+    threshold = 15          # minimum number of votes (intersections in Hough grid cell)
+    min_line_len = 40       # minimum number of pixels making up a line
+    max_line_gap = 20       # maximum gap in pixels between connectable line segments
+    img_hough_lines = hough_lines(img_region, 
+                              rho, theta, threshold, min_line_len, max_line_gap) 
+    
+    # Draw the lines on the edge image
+    result = weighted_img(img_hough_lines, image, 
+                               α=0.8, β=1., λ=0.)
+
+    return result 
+
 def main():
-	os.listdir("test_images/")
+   
+   for img in os.listdir("../test_images/"):
+        image = mpimg.imread("../test_images/" + img)
+        output = pipeline_first_attempt(image)
+        cv2.imwrite('../test_images_output/' + img, output)
 
-	#reading in an image
-	image = mpimg.imread('test_images/solidWhiteRight.jpg')
+    white_output = '../test_videos_output/solidWhiteRight.mp4'
+    ## To speed up the testing process you may want to try your pipeline on a shorter subclip of the video
+    ## To do so add .subclip(start_second,end_second) to the end of the line below
+    ## Where start_second and end_second are integer values representing the start and end of the subclip
+    ## You may also uncomment the following line for a subclip of the first 5 seconds
+    #clip1 = VideoFileClip("test_videos/solidWhiteRight.mp4").subclip(0,5)
+    clip1 = VideoFileClip("../test_videos/solidWhiteRight.mp4")
+    white_clip = clip1.fl_image(pipeline_first_attempt) #NOTE: this function expects color images!!
 
-	#printing out some stats and plotting
-	print('This image is:', type(image), 'with dimensions:', image.shape)
-	plt.imshow(image)  # if you wanted to show a single color channel image called 'gray', for example, call as plt.imshow(gray, cmap='gray')
+    yellow_output = '../test_videos_output/solidYellowLeft.mp4'
+    ## To speed up the testing process you may want to try your pipeline on a shorter subclip of the video
+    ## To do so add .subclip(start_second,end_second) to the end of the line below
+    ## Where start_second and end_second are integer values representing the start and end of the subclip
+    ## You may also uncomment the following line for a subclip of the first 5 seconds
+    ##clip2 = VideoFileClip('test_videos/solidYellowLeft.mp4').subclip(0,5)
+    clip2 = VideoFileClip('../test_videos/solidYellowLeft.mp4')
+    yellow_clip = clip2.fl_image(pipeline_first_attempt)
 
-	# TODO: Build your pipeline that will draw lane lines on the test_images
-	# then save them to the test_images directory.
-	solidWhiteCurve = mpimg.imread('test_images/solidWhiteCurve.jpg')
-
-	# color selection
-
-
-	#first grayscale the image
-	solidWhiteCurve_gray = grayscale(solidWhiteCurve)
-
-	#define a kernel size and apply gaussion smoothing
-	kernel_size = 5
-	solidWhiteCurve_gray_gaussian = gaussian_blur(solidWhiteCurve_gray, kernel_size)
-
-	# Define our parameters for Canny and apply
-	low_threshold = 50
-	high_threshold = 150
-	solidWhiteCurve_gray_gaussian_canny = canny(solidWhiteCurve_gray_gaussian, low_threshold, high_threshold)
-
-	# This time we are defining a four sided polygon to mask
-	imshape = image.shape
-	vertices = np.array([[(0,imshape[0]),(450, 290), (490, 290), (imshape[1],imshape[0])]], dtype=np.int32)
-	solidWhiteCurve_gray_gaussian_canny_masked = region_of_interest(solidWhiteCurve_gray_gaussian_canny, vertices)
-
-	# Define the Hough transform parameters
-	# Make a blank the same size as our image to draw on
-	rho = 1                # distance resolution in pixels of the Hough grid
-	theta = (np.pi)/180    # angular resolution in radians of the Hough grid
-	threshold = 1          # minimum number of votes (intersections in Hough grid cell)
-	min_line_len = 1       #minimum number of pixels making up a line
-	max_line_gap = 50      # maximum gap in pixels between connectable line segments
-	hough_lines = hough_lines(solidWhiteCurve_gray_gaussian_canny_masked, rho, theta, threshold, min_line_len, max_line_gap) 
-
-	# Draw the lines on the edge image
-	#lines_edges =  weighted_img(hough_lines, solidWhiteCurve, α=0.8, β=1., λ=0.) 
-	cv2.imwrite('test_images_output/solidWhiteCurve.jpg', solidWhiteCurve)
-
-	images = [solidWhiteCurve, 
-	          solidWhiteCurve_gray, 
-	          solidWhiteCurve_gray_gaussian, 
-	          solidWhiteCurve_gray_gaussian_canny,
-	         solidWhiteCurve_gray_gaussian_canny_masked]
-	for ima in images:
-	    plt.figure()
-	    plt.imshow(ima)
+    challenge_output = 'test_videos_output/challenge.mp4'
+    ## To speed up the testing process you may want to try your pipeline on a shorter subclip of the video
+    ## To do so add .subclip(start_second,end_second) to the end of the line below
+    ## Where start_second and end_second are integer values representing the start and end of the subclip
+    ## You may also uncomment the following line for a subclip of the first 5 seconds
+    ##clip3 = VideoFileClip('test_videos/challenge.mp4').subclip(0,5)
+    clip3 = VideoFileClip('test_videos/challenge.mp4')
+    challenge_clip = clip3.fl_image(pipeline_first_attempt)
 
 if __name__ = "__main__":
 	main()

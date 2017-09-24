@@ -5,7 +5,7 @@ import cv2
 
 
 # Read in and grayscale the image
-image = mpimg.imread('exit-ramp.jpg')
+image = mpimg.imread('../test_images/exit-ramp.jpg')
 gray = cv2.cvtColor(image,cv2.COLOR_RGB2GRAY)
 
 # Define a kernel size and apply Gaussian smoothing

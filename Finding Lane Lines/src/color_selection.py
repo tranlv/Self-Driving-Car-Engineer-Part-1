@@ -3,7 +3,7 @@ import matplotlib.image as mpimg
 import numpy as np
 
 # Read in the image
-image = mpimg.imread('test.jpg')
+image = mpimg.imread('../test_images/test.jpg')
 
 # Grab the x and y size and make a copy of the image
 ysize = image.shape[0]
