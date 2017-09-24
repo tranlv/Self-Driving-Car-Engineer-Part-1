@@ -1,6 +1,6 @@
 # **Autonomous vehicle projects**
 
-<img src="img/self-drivi.jpg" width="480" alt="Combined Image" />
+<img src="img/self-driving-car.jpg" width="480" alt="Combined Image" />
 
 Overview
 ---
