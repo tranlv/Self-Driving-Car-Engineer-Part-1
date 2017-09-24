@@ -9,30 +9,46 @@ When we drive, we use our eyes to decide where to go.  The lines on the road tha
 
 In this project you will detect lane lines in images using Python and OpenCV.  OpenCV means "Open-Source Computer Vision", which is a package that has many useful tools for analyzing images.  
 
-To complete the project, two files will be submitted: a file containing project code and a file containing a brief write up explaining your solution. We have included template files to be used both for the [code](https://github.com/udacity/CarND-LaneLines-P1/blob/master/P1.ipynb) and the [writeup](https://github.com/udacity/CarND-LaneLines-P1/blob/master/writeup_template.md).The code file is called P1.ipynb and the writeup template is writeup_template.md 
 
-To meet specifications in the project, take a look at the requirements in the [project rubric](https://review.udacity.com/#!/rubrics/322/view)
-
-
-Creating a Great Writeup
+Installation
 ---
-For this project, a great writeup should provide a detailed response to the "Reflection" section of the [project rubric](https://review.udacity.com/#!/rubrics/322/view). There are three parts to the reflection:
+**Download** the latest version of `miniconda` that matches your system.
 
-1. Describe the pipeline
+**NOTE**: There have been reports of issues creating an environment using miniconda `v4.3.13`. If it gives you issues try versions `4.3.11` or `4.2.12` from [here](https://repo.continuum.io/miniconda/).
 
-2. Identify any shortcomings
+|        | Linux | Mac | Windows | 
+|--------|-------|-----|---------|
+| 64-bit | [64-bit (bash installer)][lin64] | [64-bit (bash installer)][mac64] | [64-bit (exe installer)][win64]
+| 32-bit | [32-bit (bash installer)][lin32] |  | [32-bit (exe installer)][win32]
 
-3. Suggest possible improvements
+[win64]: https://repo.continuum.io/miniconda/Miniconda3-latest-Windows-x86_64.exe
+[win32]: https://repo.continuum.io/miniconda/Miniconda3-latest-Windows-x86.exe
+[mac64]: https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+[lin64]: https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+[lin32]: https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86.sh
 
-We encourage using images in your writeup to demonstrate how your pipeline works.  
+**Install** [miniconda](http://conda.pydata.org/miniconda.html) on your machine. Detailed instructions:
 
-All that said, please be concise!  We're not looking for you to write a book here: just a brief description.
+- **Linux:** http://conda.pydata.org/docs/install/quick.html#linux-miniconda-install
+- **Mac:** http://conda.pydata.org/docs/install/quick.html#os-x-miniconda-install
+- **Windows:** http://conda.pydata.org/docs/install/quick.html#windows-miniconda-install
 
-You're not required to use markdown for your writeup.  If you use another method please just submit a pdf of your writeup. Here is a link to a [writeup template file](https://github.com/udacity/CarND-LaneLines-P1/blob/master/writeup_template.md). 
+**Setup** the `carnd-term1` environment. 
+
+```
+cd environment
+```
+
+If you are on Windows, **rename**   
+`meta_windows_patch.yml` to   
+`meta.yml`
+
+**Create** carnd-term1.  Running this command will create a new `conda` environment that is provisioned with all libraries you need to be successful in this program.
+```
+conda env create -f environment.yml
+```
 
 
-The Project
----
 
 ## If you have already installed the [CarND Term1 Starter Kit](https://github.com/udacity/CarND-Term1-Starter-Kit/blob/master/README.md) you should be good to go!   If not, you should install the starter kit to get started on this project. ##
 
@@ -48,5 +64,4 @@ Jupyter is an Ipython notebook where you can run blocks of code and see results 
 
 A browser window will appear showing the contents of the current directory.  Click on the file called "P1.ipynb".  Another browser window will appear displaying the notebook.  Follow the instructions in the notebook to complete the project.  
 
-**Step 3:** Complete the project and submit both the Ipython notebook and the project writeup
 
