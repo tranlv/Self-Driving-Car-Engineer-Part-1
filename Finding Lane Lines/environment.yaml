@@ -1,0 +1,138 @@
+name: carnd-term1
+channels:
+- menpo
+- conda-forge
+- defaults
+dependencies:
+- asn1crypto=0.22.0=py35_0
+- bkcharts=0.2=py35_0
+- bleach=2.0.0=py35_0
+- bokeh=0.12.6=py35_0
+- ca-certificates=2017.7.27.1=0
+- certifi=2017.7.27.1=py35_0
+- cffi=1.10.0=py35_0
+- chardet=3.0.4=py35_0
+- click=6.7=py35_0
+- cloudpickle=0.4.0=py35_0
+- colorama=0.3.9=py35_0
+- cryptography=2.0.3=py35_0
+- cycler=0.10.0=py35_0
+- dask=0.15.2=py35_0
+- dask-core=0.15.2=py35_0
+- decorator=4.1.2=py35_0
+- distributed=1.18.3=py35_0
+- entrypoints=0.2.3=py35_1
+- eventlet=0.21.0=py35_0
+- flask=0.12.2=py35_0
+- flask-socketio=2.9.2=py35_0
+- freetype=2.7=vc14_1
+- greenlet=0.4.12=py35_0
+- h5py=2.7.1=py35_1
+- hdf5=1.8.18=vc14_1
+- heapdict=1.0.0=py35_0
+- html5lib=0.999999999=py35_0
+- icu=58.1=vc14_1
+- idna=2.5=py35_0
+- imageio=2.1.2=py35_0
+- ipykernel=4.6.1=py35_0
+- ipython=6.1.0=py35_0
+- ipython_genutils=0.2.0=py35_0
+- itsdangerous=0.24=py35_1
+- jedi=0.10.2=py35_0
+- jinja2=2.9.6=py35_0
+- jpeg=9b=vc14_0
+- jsonschema=2.5.1=py35_0
+- jupyter=1.0.0=py35_0
+- jupyter_client=5.1.0=py35_0
+- jupyter_console=5.1.0=py35_0
+- jupyter_core=4.3.0=py35_0
+- libpng=1.6.28=vc14_1
+- libtiff=4.0.6=vc14_7
+- locket=0.2.0=py35_1
+- markupsafe=1.0=py35_0
+- matplotlib=2.0.0=np112py35_2
+- mistune=0.7.4=py35_0
+- msgpack-python=0.4.8=py35_0
+- nbconvert=5.3.1=py_1
+- nbformat=4.4.0=py35_0
+- networkx=1.11=py35_0
+- notebook=5.0.0=py35_0
+- olefile=0.44=py35_0
+- openssl=1.0.2l=vc14_0
+- pandas=0.20.3=py35_1
+- pandoc=1.19.2=0
+- pandocfilters=1.4.1=py35_0
+- partd=0.3.8=py35_0
+- patsy=0.4.1=py35_0
+- pickleshare=0.7.4=py35_0
+- pillow=4.2.1=py35_1
+- pip=9.0.1=py35_0
+- prompt_toolkit=1.0.15=py35_0
+- psutil=5.2.2=py35_0
+- pycparser=2.18=py35_0
+- pygments=2.2.0=py35_0
+- pyopenssl=17.2.0=py35_0
+- pyparsing=2.2.0=py35_0
+- pysocks=1.6.7=py35_0
+- python=3.5.2=5
+- python-dateutil=2.6.1=py35_0
+- python-engineio=1.7.0=py35_0
+- python-socketio=1.8.0=py35_0
+- pytz=2017.2=py35_0
+- pywavelets=0.5.2=np112py35_0
+- pyyaml=3.12=py35_1
+- pyzmq=16.0.2=py35_2
+- qt=4.8.7=vc14_7
+- qtconsole=4.3.1=py35_0
+- requests=2.18.4=py35_1
+- scikit-image=0.13.0=py35_1
+- seaborn=0.8.1=py35_0
+- setuptools=36.3.0=py35_0
+- simplegeneric=0.8.1=py35_0
+- sip=4.18=py35_1
+- six=1.10.0=py35_1
+- sortedcontainers=1.5.7=py35_0
+- statsmodels=0.8.0=py35_0
+- tblib=1.3.2=py35_0
+- testpath=0.3.1=py35_0
+- toolz=0.8.2=py35_0
+- tornado=4.5.2=py35_0
+- traitlets=4.3.2=py35_0
+- urllib3=1.22=py35_0
+- vc=14=0
+- vs2015_runtime=14.0.25420=0
+- wcwidth=0.1.7=py35_0
+- webencodings=0.5=py35_0
+- werkzeug=0.12.2=py35_0
+- wheel=0.29.0=py35_0
+- win_inet_pton=1.0.1=py35_1
+- win_unicode_console=0.5=py35_0
+- wincertstore=0.2=py35_0
+- yaml=0.1.6=vc14_0
+- zict=0.1.2=py35_0
+- zlib=1.2.8=vc14_3
+- mkl=2017.0.3=0
+- numpy=1.12.1=py35_0
+- scikit-learn=0.19.0=np112py35_0
+- scipy=0.19.1=np112py35_0
+- ffmpeg=2.7.0=0
+- ipywidgets=5.1.5=py35_0
+- opencv3=3.1.0=py35_0
+- pyqt=4.11.4=py35_2
+- widgetsnbextension=1.2.3=py35_1
+- pip:
+  - ipython-genutils==0.2.0
+  - jupyter-client==5.1.0
+  - jupyter-console==5.1.0
+  - jupyter-core==4.3.0
+  - keras==1.2.1
+  - moviepy==0.2.3.2
+  - prompt-toolkit==1.0.15
+  - protobuf==3.4.0
+  - tensorflow==0.12.1
+  - theano==0.9.0
+  - tqdm==4.11.2
+  - win-inet-pton==1.0.1
+  - win-unicode-console==0.5
+prefix: C:\Users\AdminCOOP\Anaconda3\envs\carnd-term1
+
