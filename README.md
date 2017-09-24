@@ -1,12 +1,12 @@
 # **Autonomous vehicle projects**
 
-<img src="img/self-driving-car.jpg" width="480" alt="Combined Image" />
+<img src="img/self-drivi.jpg" width="480" alt="Combined Image" />
 
 Overview
 ---
 The repo contains several autonomous vehicle projects
 
-Overview
+List of projects
 ---
 *  [Project 1: Finding Lane Lines on the Road](https://github.com/tranlyvu/self-driving-car-projects/tree/master/Finding%20Lane%20Lines)
 
