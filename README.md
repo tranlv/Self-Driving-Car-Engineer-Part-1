@@ -10,8 +10,8 @@ List of projects
 ---
 Contest| Description
 -------|------------
-[Project 1: Finding Lane Lines](https://github.com/tranlyvu/self-driving-car-projects/tree/master/Finding%20Lane%20Lines) | A vision project whose objective is to detect lane lines in images
-[Project 2: Traffic Sign Classifier](https://github.com/tranlyvu/self-driving-car-projects/tree/master/Traffic%20Sign%20Classifier) | A vision project whose objective is to classify traffic signs
+[Project 1: Finding Lane Lines on the road](https://github.com/tranlyvu/self-driving-car-projects/tree/master/Finding%20Lane%20Lines) | A vision project whose objective is to detect lane lines in images
+[Project 2: Traffic Sign Recognition Classifier](https://github.com/tranlyvu/self-driving-car-projects/tree/master/Traffic%20Sign%20Classifier) | A vision project whose objective is to classify traffic signs
 
 Contribution
 ---
