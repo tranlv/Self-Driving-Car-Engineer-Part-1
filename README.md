@@ -4,7 +4,7 @@
 
 Overview
 ---
-The repo contains several autonomous vehicle projects
+The repo contains autonomous vehicle projects
 
 List of projects
 ---
