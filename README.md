@@ -11,7 +11,7 @@ List of projects
 Project| Description
 -------|------------
 [Finding Lane Lines on the road](https://github.com/tranlyvu/self-driving-car-projects/tree/master/Finding%20Lane%20Lines) | [Self-driving car Engineer Nanodegree](https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013) project 1 : detect lane lines in images
-[Traffic Sign Recognition Classifier](https://github.com/tranlyvu/self-driving-car-projects/tree/master/Traffic%20Sign%20Classifier) | A [Self-driving car Engineer Nanodegree](https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013) project 2 : classify traffic signs
+[Traffic Sign Recognition Classifier](https://github.com/tranlyvu/self-driving-car-projects/tree/master/Traffic%20Sign%20Classifier) | [Self-driving car Engineer Nanodegree](https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013) project 2 : classify traffic signs
 
 Contribution
 ---
