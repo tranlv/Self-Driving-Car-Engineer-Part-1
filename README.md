@@ -8,10 +8,10 @@ The repo contains autonomous vehicle projects
 
 List of projects
 ---
-Contest| Description
+Project| Description
 -------|------------
-[Project 1: Finding Lane Lines on the road](https://github.com/tranlyvu/self-driving-car-projects/tree/master/Finding%20Lane%20Lines) | A vision project whose objective is to detect lane lines in images
-[Project 2: Traffic Sign Recognition Classifier](https://github.com/tranlyvu/self-driving-car-projects/tree/master/Traffic%20Sign%20Classifier) | A vision project whose objective is to classify traffic signs
+[Finding Lane Lines on the road](https://github.com/tranlyvu/self-driving-car-projects/tree/master/Finding%20Lane%20Lines) | [Self-driving car Engineer Nanodegree](https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013) project 1 : detect lane lines in images
+[Traffic Sign Recognition Classifier](https://github.com/tranlyvu/self-driving-car-projects/tree/master/Traffic%20Sign%20Classifier) | A [Self-driving car Engineer Nanodegree](https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013) project 2 : classify traffic signs
 
 Contribution
 ---
