@@ -1,4 +1,4 @@
-## Traffic Sign Recognition Program
+## Traffic Sign Classification
 
 Overview
 ---
