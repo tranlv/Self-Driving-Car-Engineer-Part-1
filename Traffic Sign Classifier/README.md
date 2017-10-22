@@ -1,4 +1,4 @@
-## Project: Build a Traffic Sign Recognition Program
+## Traffic Sign Recognition Program
 
 Overview
 ---
