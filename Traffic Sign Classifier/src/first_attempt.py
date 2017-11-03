@@ -15,13 +15,10 @@ EPOCHS = 28
 BATCH_SIZE = 128
 LEARNING_RATE = 0.0001
 
-'''First attempt pipeline
-Step 1: Pre-processing data 
-        - graysclale 
-        - normalize
-        - reshape input data to (32,32,1)
-Step 2: Define Lenet_5 model
-Step 3: Train original Lenet_5 with train and validation sets
+''' Pre-processing pipeline 
+    - graysclale 
+    - normalize
+    - reshape input data to (32,32,1)
 ''' 
 
 # The data is probably in order RGB
@@ -41,7 +38,7 @@ X_train_original, y_train_original = train['features'], train['labels']
 X_valid_original, y_valid_original = valid['features'], valid['labels']
 X_test_original, y_test_original = test['features'], test['labels']
 
-
+'''Helper functions'''
 def grayscale(input_image):
     """grayscale"""
     output = []
@@ -107,7 +104,7 @@ def fully_connected_layer(input_layer,
     layer = tf.matmul(input_layer, weights) + biases
     return layer
 
-"""STEP 1"""
+"""Pre-processing data"""
 
 def pre_process_1st_attempt(input_image):
     gray_image = grayscale(input_image)
@@ -119,7 +116,7 @@ X_train_final_1 = pre_process_1st_attempt(X_train_original)
 X_valid_final_1 = pre_process_1st_attempt(X_valid_original)
 
 
-"""STEP 2"""
+"""Model design"""
 def Lenet_5_first_attempt(input_image):    
     
     # Layer 1: Convolutional. Input = 32x32x1. Output = 28x28x6.
@@ -148,8 +145,6 @@ def Lenet_5_first_attempt(input_image):
     
     return logits
 
-"""STEP 3"""
-
 def evaluate(X_data, y_data):
     """Evaluation function"""
     num_examples = len(X_data)
@@ -164,7 +159,7 @@ def evaluate(X_data, y_data):
     return total_loss / num_examples, total_accuracy / num_examples
 
 
-
+"""Training data"""
 if __name__ == "__main__":
 
 	keep_prob = tf.placeholder(tf.float32)
@@ -182,7 +177,7 @@ if __name__ == "__main__":
 
 	train_loss_history = []
 	valid_loss_history = []
-	
+
 	#Start running tensor flow
 	with tf.Session() as sess:
 	training(Lenet_5_first_attempt)
