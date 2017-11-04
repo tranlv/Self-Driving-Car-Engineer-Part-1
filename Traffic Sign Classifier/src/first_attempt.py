@@ -145,7 +145,7 @@ def Lenet_5_first_attempt(input_image):
     
     return logits
 
-def evaluate(X_data, y_data):
+def evaluate_first_attempt(X_data, y_data):
     """Evaluation function"""
     num_examples = len(X_data)
     total_accuracy = 0
@@ -162,7 +162,6 @@ def evaluate(X_data, y_data):
 """Training data"""
 if __name__ == "__main__":
 
-	keep_prob = tf.placeholder(tf.float32)
 	x = tf.placeholder(tf.float32, (None, 32, 32, 1))
 	y = tf.placeholder(tf.int32, (None))
 	one_hot_y = tf.one_hot(y, 43)
@@ -193,10 +192,10 @@ if __name__ == "__main__":
 	        batch_x, batch_y = X_train[offset:end], y_train[offset:end]
 	        sess.run(training_operation, feed_dict={x: batch_x, y: batch_y})
 	            
-	    valid_loss, valid_accuracy = evaluate(X_valid_final_1, y_valid_original)
+	    valid_loss, valid_accuracy = evaluate_first_attempt(X_valid_final_1, y_valid_original)
 	    valid_loss_history.append(valid_loss)
 	    
-	    train_loss, train_accuracy = evaluate(X_train_final_1, y_train_original)
+	    train_loss, train_accuracy = evaluate_first_attempt(X_train_final_1, y_train_original)
 	    train_loss_history.append(train_loss)
 	    
 	    print("EPOCH {} ...".format(i+1))
