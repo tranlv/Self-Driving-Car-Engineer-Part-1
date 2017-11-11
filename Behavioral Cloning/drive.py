@@ -94,7 +94,9 @@ def send_control(steering_angle, throttle):
         skip_sid=True)
 
 
+
 if __name__ == '__main__':
+
     parser = argparse.ArgumentParser(description='Remote Driving')
     parser.add_argument(
         'model',
