@@ -13,9 +13,9 @@ List of projects
 
 1. Project 0 - Finding Lane Lines: detect lane lines in images 
 
-2. [Project 1 - Traffic Sign Recognition Classifier](https://github.com/tranlyvu/self-driving-car-projects/tree/master/Traffic%20Sign%20Classifier): classify traffic signs using deep learning
+2. Project 1 - Traffic Sign Recognition Classifier: classify traffic signs using deep learning
 
-3. Project 2 - Behavior Cloning
+3. Project 2 - Behavior Cloning: clone driving behavior
 
 Contribution
 ---
