@@ -118,7 +118,7 @@ if __name__ == '__main__':
 	                                    validation_data = validation_generator,
 	                                    nb_val_samples = len(validation_samples),
 	                                    nb_epoch = 25)
-	model.save('model.h5')
+	model.save('../model.h5')
 
 
 	    
