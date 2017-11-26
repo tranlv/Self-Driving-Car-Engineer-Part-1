@@ -11,11 +11,13 @@ List of projects
 
 ### [Self-driving car Engineer Nanodegree projects](https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013) 
 
-1. Project 0 - Finding Lane Lines: detect lane lines in images 
+1. Project 0 - Finding Lane Lines: Detect lane lines in images 
 
-2. Project 1 - Traffic Sign Recognition Classifier: classify traffic signs using deep learning
+2. Project 1 - Traffic Sign Recognition Classifier: Classify traffic signs using deep learning
 
-3. Project 2 - Behavior Cloning: clone driving behavior
+3. Project 2 - Behavior Cloning: Clone driving behavior
+
+4. Project 3 - Advanced Lane Lines: Identify the lane boundaries in a video
 
 Contribution
 ---
