@@ -19,7 +19,7 @@ List of projects
 
 4. Project 3 - Advanced Lane Lines Finding: Identify the lane boundaries in a video
 
-5. Project 5- Vehicle Detection and Tracking: Detect vehicles in a video
+5. Project 4 - Vehicle Detection and Tracking: Detect vehicles in a video
 
 Contribution
 ---
