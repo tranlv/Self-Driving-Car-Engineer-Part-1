@@ -1,4 +1,4 @@
-# **Autonomous vehicle projects**
+# **Autonomous Vehicle Projects**
 
 <img src="img/self-driving-car.jpg" width="480" alt="Combined Image" />
 
@@ -18,6 +18,8 @@ List of projects
 3. Project 2 - Behavior Cloning: Clone driving behavior
 
 4. Project 3 - Advanced Lane Lines Finding: Identify the lane boundaries in a video
+
+5. Project 5- Vehicle Detection and Tracking: Detect vehicles in a video
 
 Contribution
 ---
