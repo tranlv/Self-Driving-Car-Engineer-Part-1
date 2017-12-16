@@ -45,8 +45,9 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 
 I then used the output `obj_points` and `img_points` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
-![alt text][camera_cal/calibration1.jpg]
-![alt text][output_images/undistort/undistort_calibration1.jpg]
+![chessboard image](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/camera_cal/calibration1.jpg)
+
+![undistorted chessboard image](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/undistort/undistort_calibration1.jpg)
 
 
 ### Pipeline (single images)
