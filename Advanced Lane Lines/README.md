@@ -1,4 +1,4 @@
-## Advanced Lane Finding
+# **Advanced Lane Finding**
 
 In this project, We attempted to identify the lane boundaries in a video.
 
@@ -20,18 +20,6 @@ The goals / steps of this project are the following:
 The images for camera calibration are stored in the folder called `camera_cal`.  The images in `test_images` are for testing your pipeline on single frames.  If you want to extract more test images from the videos, you can simply use an image writing method like `cv2.imwrite()`, i.e., you can read the video in frame by frame as usual, and for frames you want to save for later you can write to an image file.  
 
 
-[//]: # (Image References)
-
-[image1]: ./examples/undistort_output.png "Undistorted"
-[image2]: ./test_images/test1.jpg "Road Transformed"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/warp_example_img.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
-[image7]: ./example/undistort_test1.jpg "Undistorted Sample Image"
-[image8]: ./example/rgb_r_binary.jpg "R-channel RGB"
-[image9]: ./example/combine_binary.jpg "R-channel RGB"
-[video1]: ./project_video.mp4 "Video"
 
 Writeup 
 ---
@@ -44,33 +32,38 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 
 I then used the output `obj_points` and `img_points` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
-![undistorted chessboard image][image1]
+![undistorted chessboard image](image1]
 
 ### Pipeline (single images)
 
 #### Distortion correction of a sample test image
 
 In order to demonstrate form the piple to detect lane lines, I selected the first image in directory test_images
-![alt text][image2]
+
+![sample image](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/test_images/test1.jpg)
 
 Using Camera matrix and distortion coefficients from previous step, i apply distortion correction to this sample image
-![alt text][image7]
+![undistort](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/undistort_test1.jpg)
 
 
 #### Creating thresholded binary image
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).
-![alt text][image3]
+I used a combination of color and gradient thresholds to filter out what we don’t want (thresholding steps at lines # through # in `another_file.py`).
 
-1. I first visualize 3 color spaces RGB, HLS and HSV (color space transformation is done using cv2). Among all, R-channel in RGB , S-channel in HLS and V-channel in HSV seem to work best in their respective space. Their difference is very insignificant. I eventually decided to use red channel of RGB, although I believe others will do equavalently well. 
+1. First , we do a color threshold filter to pick only yelow and white color of the road lanes
 
-With some error and trial, I find the threshold (90, 255) to perform pretty well for R channel of RGB
-![alt text][image8]
+I first visualize 3 color spaces RGB, HLS and HSV (color space transformation is done using cv2). Among all, R-channel in RGB , S-channel in HLS and V-channel in HSV seem to work best in their respective space. Their difference is very insignificant. I eventually decided to use value-channel of HSV, although I believe others will do equavalently well. 
+
+With some error and trial by observation, I find the threshold (210, 255) to perform pretty well for  V-channel in HSV. 
+
+![color filter](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/color_filter_binary.jpg)
+
+Note that this can be done by seperating yellow and white color but i simplified the process by fiding the threshold for both white and yellow.
 
 2. Next, I apply Sober operator (x and y), magnitude and direction of the gradient. After a few trial and error, I deduced the min and max threshold for each of them
 
 3. The last thing is to combine threshold for both gradient and color
-![alt text][image9]
+![gradient + color](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/combine_binary.jpg)
 
 #### Perspective Transformation
 
@@ -82,11 +75,12 @@ src = np.float32(
     [((img_size[0] / 6) - 10), img_size[1]],
     [(img_size[0] * 5 / 6) + 60, img_size[1]],
     [(img_size[0] / 2 + 55), img_size[1] / 2 + 100]])
-dst = np.float32(
-    [[(img_size[0] / 4), 0],
-    [(img_size[0] / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), 0]])
+dst = np.float32([
+    	[(img_size[0] / 4), 0],
+    	[(img_size[0] / 4), img_size[1]],
+    	[(img_size[0] * 3 / 4), img_size[1]],
+    	[(img_size[0] * 3 / 4), 0]
+    ])
 ```
 
 This resulted in the following source and destination points:
@@ -100,36 +94,42 @@ This resulted in the following source and destination points:
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-![alt text][image4]
+![wrap sample]((https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/warp_example_img.jpg)
 
 #### 4. Identifying lane-line pixels and fit their positions with a polynomial
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+We are using second order polynomial to fit the lane: x = ay**2 + by + c.
 
-![alt text][image5]
+In order to better estimate where the lane is, we use a histogram on the bottom half of image
 
-#### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
+![histogram](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/histogram.jpg)
 
-I did this in lines # through # in my code in `my_other_file.py`
+Then we divide the image in windows, and for each left and right window we find the mean of it, re-centering the window. The points inside the windows are stored. We then feed the numpy polyfit function to find the best second order polynomial to represent the lanes.
 
-#### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+#### 5. Radius of curvature of the Lane 
 
-![alt text][image6]
+Radius of curvature is implemented from this [tutorial](https://www.intmath.com/applications-differentiation/8-radius-curvature.php). For second order polynomials, it is simplified to (1+(2Ay + B)**2)**1.5/ abs(2A)
+
+I calculated both radius curvature in pixel and real world spaces
+
+#### 6. Final output 
+
+Here is test image number 1 where lane area is identified clearly:
+
+![final putput](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/test_img_1_output.jpg)
 
 ---
 
 ### Pipeline (video)
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
+#### Project video
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_videos/project_video.mp4)
 
 ---
 
 ### Discussion
 
-#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
