@@ -170,4 +170,3 @@ if __name__ == '__main__':
 	challenge_output = '../test_videos_output/challenge.mp4'
 	clip3 = VideoFileClip('../test_videos/challenge.mp4')
 	challenge_clip = clip3.fl_image(process_image)
-	%time challenge_clip.write_videofile(challenge_output, audio=False)
