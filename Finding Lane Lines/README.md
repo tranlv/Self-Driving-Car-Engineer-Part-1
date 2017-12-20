@@ -5,7 +5,7 @@
 Overview
 ---
 
-When we drive, we use our eyes to decide where to go.  The lines on the road that show us where the lanes are act as our constant reference for where to steer the vehicle.  Naturally, one of the first things we would like to do in developing a self-driving car is to automatically detect lane lines using an algorithm.
+When we drive, we use our eyes to decide where to go. The lines on the road that show us where the lanes are act as our constant reference for where to steer the vehicle.  Naturally, one of the first things we would like to do in developing a self-driving car is to automatically detect lane lines using an algorithm.
 
 The project objective is to detect lane lines in images using Python and OpenCV. 
 
@@ -35,15 +35,18 @@ Using these 2 right and left lists, I find the coefficient of 1st-degree polynom
 
 An example of one of given test images gone through the pipeline:
 
-![alt text]()
+![sample](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Finding%20Lane%20Lines/test_images_output/solidWhiteRightOutput.jpg)
+
+An example of [one of given test videos](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Finding%20Lane%20Lines/test_videos_output/solidWhiteRight.mp4) gone through the pipeline.
 
 
-### 2. Identify potential shortcomings with your current pipeline
+### 2. Potential shortcomings in the pipeline
+
+Looking from the output videos, the lines seemed skewed sometimes. Also, it did not perform well on challenge video where the car was keep turning
 
 
+### 3. Possible improvements to pipeline
 
-
-### 3. Suggest possible improvements to your pipeline
-
+One possible improvement was to apply the color filter to identify the lane lines.
 
 
