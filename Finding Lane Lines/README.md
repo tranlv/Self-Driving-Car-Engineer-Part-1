@@ -35,7 +35,7 @@ Using these 2 right and left lists, I find the coefficient of 1st-degree polynom
 
 An example of one of given test images gone through the pipeline:
 
-![alt text][image1]
+![alt text]()
 
 
 ### 2. Identify potential shortcomings with your current pipeline
