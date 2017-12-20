@@ -10,28 +10,32 @@ When we drive, we use our eyes to decide where to go.  The lines on the road tha
 The project objective is to detect lane lines in images using Python and OpenCV. 
 
 
-
 Writeup 
 ---
 
-[//]: # (Image References)
+### 1. Pipeline
 
-[image1]: test_images_output/grayscale.jpg "Grayscale"
+My pipeline final consisted of 5 steps
 
----
+```
+1. Firstly , I grayscaled the image with cv2.
 
-### 1. Pipeline. As part of the description, explain how you modified the draw_lines() function.
+2. Next, I applied gaussian blur before applyin Canny Edge Detection, this is to further smooth the image in hope of better result, the kernel size was 3 without any tuning.
 
-My pipeline consisted of 5 steps. 
+3. Next, I applied Canny Edge Detection - one of main technique from the course to the image; I spent some time to find the min and max threshold which reflected the best result from my observation. The final values were 80 and 240 which corresponded to recommended ratio 1:3.
 
-First, I retained all white lane lines
+4. The next step was to define the region on interest bounded with lane lines. I used 4-sided polygon to mask the region. the bottom 2 points were simply both ends of the image frame, while the other top two points were found using observation with a few trial and errors.
+
+5. THe next step was to do Hough Transformation, not much parameters tuning here, i mainly use what was recommended from the course lectures. It wokred quite fine anyway.
+
+6. The final step was to draw the lines obtained from Hough Transformation in function draw_lines. I first calculated the slope from the 2 points of any line obtained from perious steps using the formular (y2-y1)/(x2-x1). If the slope is positive , i would put those point in a list of right lines and vice versa, I discarded points woth zero slope as they are horizonetal lines which are kind of noise
+
+Using these 2 right and left lists, I find the coefficient of 1st-degree polynomial and then construct the left and right lines function. Next step was to fin y coordinates with x-coordinates of 2 left points and then 2 right points. With the list of all the (x,y) coordinates for both right and left lines, I simple draw the lines
+```
+
+An example of one of given test images gone through the pipeline:
 
 ![alt text][image1]
-
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
-
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
-
 
 
 ### 2. Identify potential shortcomings with your current pipeline
