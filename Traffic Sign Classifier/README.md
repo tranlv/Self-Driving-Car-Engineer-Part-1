@@ -12,64 +12,48 @@ The goals / steps of this project are the following:
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
 
-Writeup
+Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/df59fa9ea4a18f373947ca5c04bec801) and [source code](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/src/second_attempt.py) of this project.
+
+Project writeup
 ---
 
-[//]: # (Image References)
+### Data Set Summary & Exploration
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+#### Summary of the dataset
 
+Udacity provided the German Traffic Sign Dataset in pickled form which is loaded using Python package 'pickle'
 
-###Data Set Summary & Exploration
+The provided dataset has 3 separate sets: training, validation and test sets, hence i do not have to split data for validation purpose. Here are some information:
+```
+The size of training set is 34799
+The size of the validation set is 4410
+The size of test set is 12630
+The shape of a traffic sign image is (32, 32, 3)
+The number of unique classes/labels in the data set is 43 
+```
 
-####1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
+The shape of traffic sign implies 32x32 pixels image with 3 channels, this is because Udacity has resized the images them before providing to students.
 
-I used the pandas library to calculate summary statistics of the traffic
-signs data set:
+#### Exploratory visualization of the dataset
 
-* The size of training set is ?
-* The size of the validation set is ?
-* The size of test set is ?
-* The shape of a traffic sign image is ?
-* The number of unique classes/labels in the data set is ?
+I did not spend so much time on this. I first print out the distribution of the samples in 43 classes of labels which 'Speed limit (50km/h)' sign has most samples (2010 samples) following by 'Speed limit (30km/h)' sign (1980 samples) and  'Yield' sign (1920 samples).
 
-####2. Include an exploratory visualization of the dataset.
+I have also plotted out 10 random images which can be seen in notebook.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+### Design and Test a Model Architecture
 
-![alt text][image1]
+#### Image data pre-processing
 
-###Design and Test a Model Architecture
+As a first step, I decided to convert the images to grayscale to convert to 1 channel image and remove the effect of color. 
 
-####1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
+Next, I normalized normalized the data so that the data has mean zero and equal variance, i.e (pixel - 128.0)/ 128.0
 
-As a first step, I decided to convert the images to grayscale because ...
+Here is an example of an image after preprocessing.
 
-Here is an example of a traffic sign image before and after grayscaling.
+![pre-processed](test_images_outputs/preprocessed_img.jpg)
 
-![alt text][image2]
+#### Model architecture 
 
-As a last step, I normalized the image data because ...
-
-I decided to generate additional data because ... 
-
-To add more data to the the data set, I used the following techniques because ... 
-
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
-
-
-####2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 My final model consisted of the following layers:
 
