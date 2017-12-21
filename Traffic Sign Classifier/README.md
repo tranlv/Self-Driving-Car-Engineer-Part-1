@@ -50,7 +50,7 @@ Next, I normalized normalized the data so that the data has mean zero and equal 
 
 Here is an example of an image after preprocessing.
 
-![pre-processed](test_images_outputs/preprocessed_img.jpg)
+![pre-processed](test_images_outputs/https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images_output/preprocessed_img.jpg)
 
 #### Model architecture 
 
