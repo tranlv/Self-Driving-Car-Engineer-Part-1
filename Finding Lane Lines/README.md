@@ -42,7 +42,7 @@ An example of [one of given test videos](https://github.com/tranlyvu/autonomous-
 
 ### 2. Potential shortcomings in the pipeline
 
-Looking from the output videos, the lines seemed skewed sometimes. Also, it did not perform well on challenge video where the car was keep turning
+Looking from the output videos, the lines seemed skewed sometimes. Also, it did not perform well on challenge video where the car was keeping turning; i.e the lan lines are very curved
 
 
 ### 3. Possible improvements to pipeline
