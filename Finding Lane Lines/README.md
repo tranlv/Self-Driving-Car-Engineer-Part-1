@@ -9,8 +9,9 @@ When we drive, we use our eyes to decide where to go. The lines on the road that
 
 The project objective is to detect lane lines in images using Python and OpenCV. 
 
+Here are the [notebook]() and [source code]() of this project
 
-Writeup 
+Project writeup 
 ---
 
 ### 1. Pipeline
