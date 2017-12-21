@@ -15,7 +15,7 @@ Writeup
 
 ### 1. Pipeline
 
-My pipeline final consisted of 5 steps
+My pipeline final consisted of 6 steps
 
 ```
 1. Firstly , I grayscaled the image with cv2.
