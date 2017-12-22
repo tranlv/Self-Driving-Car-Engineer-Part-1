@@ -17,13 +17,14 @@ The goals / steps of this project are the following:
 ### `drive.py`
 
 Usage of `drive.py` requires you have saved the trained model as an h5 file, i.e. `model.h5`. See the [Keras documentation](https://keras.io/getting-started/faq/#how-can-i-save-a-keras-model) for how to create this file using the following command:
-```sh
+
+```
 model.save(filepath)
 ```
 
 Once the model has been saved, it can be used with drive.py using this command:
 
-```sh
+```
 python drive.py model.h5
 ```
 
@@ -33,13 +34,13 @@ Note: There is known local system's setting issue with replacing "," with "." wh
 
 #### Saving a video of the autonomous agent
 
-```sh
+```
 python drive.py model.h5 run1
 ```
 
 The fourth argument, `run1`, is the directory in which to save the images seen by the agent. If the directory already exists, it'll be overwritten.
 
-```sh
+```
 ls run1
 
 [2017-01-09 16:10:23 EST]  12KiB 2017_01_09_21_10_23_424.jpg
@@ -59,7 +60,7 @@ The image file name is a timestamp of when the image was seen. This information 
 
 ### `video.py`
 
-```sh
+```
 python video.py run1
 ```
 
@@ -108,9 +109,12 @@ python drive.py model.h5
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
+### Data Preprocessing
+
+
 ### Model Architecture and Training Strategy
 
-####1. An appropriate model architecture has been employed
+In my first attempt, I used 9-layers network from end to end learning for self-driving cars by NVIDIA
 
 My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
 
