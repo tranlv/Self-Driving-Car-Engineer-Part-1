@@ -12,7 +12,7 @@ The goals / steps of this project are the following:
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
 
-Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/df59fa9ea4a18f373947ca5c04bec801) and [source code](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/src/second_attempt.py) of this project.
+Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/83ae4a2ef68908f33b3c4f3d11b1e374) and [source code](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/src/second_attempt.py) of this project.
 
 Project writeup
 ---

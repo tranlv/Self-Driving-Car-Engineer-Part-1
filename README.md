@@ -13,7 +13,7 @@ List of projects
 
 1. Project 0 - [Finding Lane Lines](http://nbviewer.jupyter.org/gist/tranlyvu/df59fa9ea4a18f373947ca5c04bec801): Detect lane lines in images 
 
-2. Project 1 - Traffic Sign Recognition Classifier: Classify traffic signs using deep learning
+2. Project 1 - [Traffic Sign Recognition Classifier](http://nbviewer.jupyter.org/gist/tranlyvu/83ae4a2ef68908f33b3c4f3d11b1e374): Classify traffic signs using deep learning
 
 3. Project 2 - Behavior Cloning: Clone driving behavior
 
