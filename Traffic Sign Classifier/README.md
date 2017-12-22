@@ -145,8 +145,8 @@ Note that the dropout of 0.5 applied only during training phase
 
 Here are five German traffic signs that I found on the web:
 
-![img1]('https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images/img1.jpg') ![img2]('https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images/img2.jpg') ![img3]('https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images/img3.jpg') 
-![img4]('https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images/img4.jpg') ![img5]('https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images/img5.jpg')
+![img1](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images/img1.jpg) ![img2](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images/img2.jpg) ![img3](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images/img3.jpg) 
+![img4](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images/img4.jpg) ![img5](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images/img5.jpg)
 
 The first image might be difficult to classify because ...
 
