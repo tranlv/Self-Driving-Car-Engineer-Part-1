@@ -76,11 +76,13 @@ My first attempt was to try the famous Lenet-5 model as recommended by Udacity b
 First attempt only gave me 86% vadilation accuracy with 28 epochs. Validation loss is way higher than training loss and they converge at different values. This is strong signal of overfitting.
 
 There are few techniques to battle overfitting:
+
 ```
 - Increase training dataset
 - Regulazation, i.e dropout
 - Reduce the complexity of training model
 ```
+
 The conplexity of original Lener-5 is pretty simple, so I chose to apply dropout of 0.5 to every layers of the model. After running for 300 epochs, my validation accuracy reached 89% and there is no signal of overfitting. I decided to increase the complexity of model to improve the accuracy.
 
 This is my final model architecture
@@ -134,14 +136,17 @@ My final model results were:
 
 ```
 
+Note that the dropout of 0.5 applied only during training phase
+
+
 ###Test a Model on New Images
 
 #### Testing on new five German traffic signs
 
 Here are five German traffic signs that I found on the web:
 
-![img1]('./test_images/img1.jpg') ![img2]('./test_images/img2.jpg') ![img3]('./test_images/img3.jpg') 
-![img4]('./test_images/img4.jpg') ![img5]('./test_images/img5.jpg')
+![img1]('https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images/img1.jpg') ![img2]('https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images/img2.jpg') ![img3]('https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images/img3.jpg') 
+![img4]('https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images/img4.jpg') ![img5]('https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images/img5.jpg')
 
 The first image might be difficult to classify because ...
 
@@ -149,13 +154,13 @@ The first image might be difficult to classify because ...
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| Image			        				 |     Prediction	        					| 
+|:--------------------------------------:|:--------------------------------------------:| 
+| Stop Sign      						 |    									| 
+| Speed limit (30km/h)  				 |  										|
+| Right-of-way at the next intersection	 | 									    |
+| Speed limit (60km/h)      		     | 					 				|
+| Road work							     |       							|
 
 
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
