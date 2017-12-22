@@ -50,63 +50,102 @@ Next, I normalized normalized the data so that the data has mean zero and equal 
 
 Here is an example of an image after preprocessing.
 
-![pre-processed](test_images_outputs/https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images_output/preprocessed_img.jpg)
+![pre-processed](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images_output/preprocessed_img.jpg)
 
-#### Model architecture 
+#### Model architecture and training
 
-
-My final model consisted of the following layers:
-
-| Layer         		|     Description	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
- 
+My first attempt was to try the famous Lenet-5 model as recommended by Udacity because convolutional model is considered to performed best on object recognition:
 
 
-####3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+|Layer   |type    |Input   |output  |
+|--------|--------|--------|--------|
+|1       |conv    |32x32x1 |28x28x6 |
+|        |relu    |        |        |
+|        |max_pool|28x28x6 |14x14x6 |
+|2       |conv    |14x14x6 |10x10x16|
+|        |relu    |        |        |
+|        |max_pool|10x10x16|5x5x16  |
+|        |flatten |5x5x16  |400     |
+|3       |linear  |400     |120     |
+|        |relu    |        |        |
+|4       |linear  |120     |84      |
+|        |relu    |        |        |
+|5       |linear  |84      |43      |
 
-To train the model, I used an ....
 
-####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+First attempt only gave me 86% vadilation accuracy with 28 epochs. Validation loss is way higher than training loss and they converge at different values. This is strong signal of overfitting.
 
+There are few techniques to battle overfitting:
+```
+- Increase training dataset
+- Regulazation, i.e dropout
+- Reduce the complexity of training model
+```
+The conplexity of original Lener-5 is pretty simple, so I chose to apply dropout of 0.5 to every layers of the model. After running for 300 epochs, my validation accuracy reached 89% and there is no signal of overfitting. I decided to increase the complexity of model to improve the accuracy.
+
+This is my final model architecture
+
+|Layer   |type    |Input   |output  |
+|--------|--------|--------|--------|
+|1       |conv    |32x32x1 |28x28x10|
+|        |relu    |        |        |
+|        |dropout |        |        |
+|2       |conv    |28x28x10|24x24x20|
+|        |relu    |        |        |
+|        |dropout |        |        |
+|3       |conv    |24x24x10|20x20x30|
+|        |relu    |        |        |
+|        |dropout |        |        |
+|4       |conv    |20x20x30|16x16x40|
+|        |relu    |        |        |
+|        |max_pool|16x16x40|8x8x40  |
+|        |dropout |        |        |
+|        |flatten |8x8x40  |2560    |
+|5       |linear  |2560    |1280    |
+|        |relu    |        |        |
+|6       |linear  |1280    |640     |
+|        |relu    |        |        |
+|7       |linear  |640     |320     |
+|        |relu    |        |        |
+|8       |linear  |320     |160     |
+|        |relu    |        |        |
+|9       |linear  |160     |80      |
+|        |relu    |        |        |
+|10      |linear  |80      |43      |
+
+
+Here are some information of my model training
+
+``` 
+- Type of optimizer: Adam Optimizer (which is generally considered the best)
+- The batch size: 128
+- Nnumber of epochs: 45 
+- learning rate: 0.0001
+
+
+```
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
+```
+- training set accuracy of:
+- validation set accuracy of: 
+- The training and validation loss converged at around 
+- test set accuracy: 
 
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
+```
 
 ###Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### Testing on new five German traffic signs
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![img1]('./test_images/img1.jpg') ![img2]('./test_images/img2.jpg') ![img3]('./test_images/img3.jpg') 
+![img4]('./test_images/img4.jpg') ![img5]('./test_images/img5.jpg')
 
 The first image might be difficult to classify because ...
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### Model's predictions on new traffic signs 
 
 Here are the results of the prediction:
 
