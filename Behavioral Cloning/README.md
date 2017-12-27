@@ -16,12 +16,7 @@ The goals / steps of this project are the following:
 
 ### `drive.py`
 
-Usage of `drive.py` requires you have saved the trained model as an h5 file, i.e. `model.h5`. See the [Keras documentation](https://keras.io/getting-started/faq/#how-can-i-save-a-keras-model) for how to create this file using the following command:
-
-```
-model.save(filepath)
-```
-
+Usage of `drive.py` requires you have saved the trained model as an h5 file, i.e. `model.h5`
 Once the model has been saved, it can be used with drive.py using this command:
 
 ```
@@ -40,21 +35,6 @@ python drive.py model.h5 run1
 
 The fourth argument, `run1`, is the directory in which to save the images seen by the agent. If the directory already exists, it'll be overwritten.
 
-```
-ls run1
-
-[2017-01-09 16:10:23 EST]  12KiB 2017_01_09_21_10_23_424.jpg
-[2017-01-09 16:10:23 EST]  12KiB 2017_01_09_21_10_23_451.jpg
-[2017-01-09 16:10:23 EST]  12KiB 2017_01_09_21_10_23_477.jpg
-[2017-01-09 16:10:23 EST]  12KiB 2017_01_09_21_10_23_528.jpg
-[2017-01-09 16:10:23 EST]  12KiB 2017_01_09_21_10_23_573.jpg
-[2017-01-09 16:10:23 EST]  12KiB 2017_01_09_21_10_23_618.jpg
-[2017-01-09 16:10:23 EST]  12KiB 2017_01_09_21_10_23_697.jpg
-[2017-01-09 16:10:23 EST]  12KiB 2017_01_09_21_10_23_723.jpg
-[2017-01-09 16:10:23 EST]  12KiB 2017_01_09_21_10_23_749.jpg
-[2017-01-09 16:10:23 EST]  12KiB 2017_01_09_21_10_23_817.jpg
-...
-```
 
 The image file name is a timestamp of when the image was seen. This information is used by `video.py` to create a chronological video of the agent driving.
 
@@ -99,11 +79,11 @@ My project includes the following files:
 - model.py containing the script to create and train the model
 - drive.py for driving the car in autonomous mode
 - model.h5 containing a trained convolution neural network 
-- writeup_report.md or writeup_report.pdf summarizing the results
 ```
 
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
-```sh
+
+```
 python drive.py model.h5
 ```
 
