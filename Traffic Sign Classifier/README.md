@@ -147,7 +147,7 @@ Note that the dropout of 0.5 applied only during training phase
 Here are five German traffic signs that I found on the web:
 
 ![img1](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/stop_sign.jpg) ![img2](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/yield_sign.jpg) ![img3](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/road_work.jpg) 
-![img4](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/left_turn.jpg) ![img5](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/60_kmh.jpg)
+![img4](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/left_turn.jpeg) ![img5](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/60_kmh.jpg)
 
 
 #### Model's predictions on new traffic signs 
