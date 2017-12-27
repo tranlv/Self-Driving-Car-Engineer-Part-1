@@ -15,7 +15,7 @@ List of projects
 
 2. Project 1 - [Traffic Sign Recognition Classifier](http://nbviewer.jupyter.org/gist/tranlyvu/83ae4a2ef68908f33b3c4f3d11b1e374): Classify traffic signs using deep learning
 
-3. Project 2 - Behavior Cloning: Clone driving behavior
+3. Project 2 - [Behavior Cloning](http://nbviewer.jupyter.org/gist/tranlyvu/671c4e258dcc5535f27e458e346c64e9): Clone driving behavior
 
 4. Project 3 - Advanced Lane Lines Finding: Identify the lane boundaries in a video
 
