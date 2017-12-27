@@ -149,6 +149,7 @@ Here are five German traffic signs that I found on the web:
 ![img1](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/stop_sign.jpg) ![img2](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/yield_sign.jpg) ![img3](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/road_work.jpg) 
 ![img4](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/left_turn.jpeg) ![img5](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/60_kmh.jpg)
 
+The main difficulty was o resize the image to 32x32x1 to fit into my lenet-based model.
 
 #### Model's predictions on new traffic signs 
 
@@ -190,6 +191,7 @@ The model predicted correctly the second image - the Yield sign (almost 1)
 
 Other images can be seen from the notebook
 
+Overrall, the current model is uncertain as it does not predict well with new images. I'm still not sure the reason
 
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
