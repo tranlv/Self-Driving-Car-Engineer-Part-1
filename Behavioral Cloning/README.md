@@ -110,27 +110,60 @@ python drive.py model.h5
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
 ### Data Preprocessing
+My Pre-processing pipeline
 
+```
+Data augmentation: Flipping images
+Normalization
+Mean centering
+```
+Those are techniques recommended by Udacity
 
 ### Model Architecture and Training Strategy
 
-In my first attempt, I used 9-layers network from end to end learning for self-driving cars by NVIDIA
+In my first attempt, I used 9-layers network from end to end learning for self-driving cars by NVIDIA as recommended by Udacity
 
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
+    
+|Layer   |type    |output filter/neurons|
+|--------|--------|--------|
+|1       |conv    |24      |
+|2       |conv    |36      |
+|3       |conv    |48      |
+|4       |conv    |64      |
+|5       |conv    |64      |
+|6       |flattern|1164    |
+|7       |relu    |100     |
+|8       |relu    |50      |
+|9       |relu    |10      |
+|10      |relu    |1       |
 
-The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
 
-####2. Attempts to reduce overfitting in the model
+However, I detected overfitting in my first attempt, and hence i tried to improved the mode in second model by using regulation, i.e dropout
 
-The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
+|Layer   |type    |output filter/neurons|
+|--------|--------|--------|
+|1       |conv    |24      |
+|        |dropout |        |
+|2       |conv    |36      |
+|        |dropout |        |
+|3       |conv    |48      |
+|        |dropout |        |
+|4       |conv    |64      |
+|5       |conv    |64      |
+|6       |flattern|1164    |
+|7       |relu    |100     |
+|8       |relu    |50      |
+|9       |relu    |10      |
+|10      |relu    |1       |
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
-####3. Model parameter tuning
+The model was trained and validated on different data sets to ensure that the model was not overfitting . The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
+#### Model parameter tuning
 
-####4. Appropriate training data
+The model used an adam optimizer, so the learning rate was not tuned manually 
+
+#### Appropriate training data
 
 Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
 

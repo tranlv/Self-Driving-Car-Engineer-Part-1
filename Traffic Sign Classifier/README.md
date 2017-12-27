@@ -122,7 +122,7 @@ Here are some information of my model training
 ``` 
 - Type of optimizer: Adam Optimizer (which is generally considered the best)
 - The batch size: 128
-- Nnumber of epochs: 45 
+- Nnumber of epochs: 40 
 - learning rate: 0.0001
 
 
