@@ -105,7 +105,7 @@ However, I detected overfitting in my first attempt as they training and validat
 
 For every time of training and parameter tunning, the model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
-At epoch of 10, the training and validation loss both went down fast and I think they would converge if I'd have increased number of epoch (graph is plotted in the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/671c4e258dcc5535f27e458e346c64e9)). However, for this kind of regression problem, both trainning loss and accuracy do not seem to be useful, it is more important to test it on the [simulator](https://github.com/udacity/self-driving-car-sim)provided by Udacity. Therefore, I simply tune number of epoch until the vehicle run well on the track.
+At epoch of 10, the training and validation loss both went down fast and I think they would converge if I'd have increased number of epoch (graph is plotted in the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/671c4e258dcc5535f27e458e346c64e9). However, for this kind of regression problem, both trainning loss and accuracy do not seem to be useful, it is more important to test it on the [simulator](https://github.com/udacity/self-driving-car-sim) provided by Udacity. Therefore, I simply tune number of epoch until the vehicle run well on the track.
 
 Final Model parameters:
 
