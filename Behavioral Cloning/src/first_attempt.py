@@ -9,14 +9,6 @@ import sklearn
 from keras.layers.pooling import MaxPooling2D
 
 
-''' First atemmpt summary
-1. Pre-proccesing data
-	- Data augmentation: Flipping images
-	- Normalization in the range of 0 and 1
-	- Mean centering the data
-2. Model architectue: NVIDIA model
-'''
-
 def append_data(col, images, measurement, steering_measurements):
     current_path = image_path + '/' + col.strip()
     image = cv2.imread(current_path)
