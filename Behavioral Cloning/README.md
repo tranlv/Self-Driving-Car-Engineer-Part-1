@@ -25,8 +25,8 @@ My project includes the following files:
 - src/model.py containing the script to create and train the model
 - drive.py for driving the car in autonomous mode
 - model.h5 containing a trained convolution neural network
-- notebook comtaining notebook
-- run1.mp4 ccontaning sample video of driving the car in autonomous mode using trained model 
+- notebook containing notebook
+- run1.mp4 containing sample video of driving the car in autonomous mode using trained model 
 ```
 
 Using the Udacity provided [simulator](https://github.com/udacity/self-driving-car-sim) and my drive.py file, I was able to test my model by driving autonomously around the track by executing 
