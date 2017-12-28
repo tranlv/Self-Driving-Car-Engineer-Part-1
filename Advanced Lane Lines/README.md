@@ -91,7 +91,7 @@ This resulted in the following source and destination points:
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-![wrap sample]((https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/warp_example_img.jpg)
+![wrap sample](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/warp_example_img.jpg)
 
 #### 4. Identifying lane-line pixels and fit their positions with a polynomial
 

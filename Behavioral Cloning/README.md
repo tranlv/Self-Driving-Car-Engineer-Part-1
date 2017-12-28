@@ -13,6 +13,7 @@ The goals / steps of this project are the following:
 
 Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/671c4e258dcc5535f27e458e346c64e9) and [source code](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Behavioral%20Cloning/src/model.py) of the project.
 
+The project video is [here](https://youtu.be/TYh4y5VDFkE).
 
 Project Writeup
 ---
@@ -115,3 +116,4 @@ Final Model parameters:
 - Batch size: 32
 ```
 
+The project video is [here](https://youtu.be/TYh4y5VDFkE).
