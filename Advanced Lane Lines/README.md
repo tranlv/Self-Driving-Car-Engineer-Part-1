@@ -17,6 +17,9 @@ The goals / steps of this project are the following:
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
+Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/29291e0ec5d644d672c7a55eb0a3f026) and [source code](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/src/advanced_lane_lines.py) of the project.
+
+The project video is [here](https://youtu.be/SXy9soOvd4k).
 
 Writeup 
 ---
@@ -45,7 +48,7 @@ Using Camera matrix and distortion coefficients from previous step, i apply dist
 
 #### Creating thresholded binary image
 
-I used a combination of color and gradient thresholds to filter out what we don’t want (thresholding steps at lines # through # in `another_file.py`).
+I used a combination of color and gradient thresholds to filter out what we don’t want.
 
 1. First , we do a color threshold filter to pick only yelow and white color of the road lanes
 
@@ -93,26 +96,29 @@ I verified that my perspective transform was working as expected by drawing the 
 
 ![wrap sample](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/warp_example_img.jpg)
 
-#### 4. Identifying lane-line pixels and fit their positions with a polynomial
+#### Identifying lane-line pixels and fit their positions with a polynomial
 
-We are using second order polynomial to fit the lane: x = ay**2 + by + c.
+I used second order polynomial to fit the lane: x = ay**2 + by + c.
 
-In order to better estimate where the lane is, we use a histogram on the bottom half of image
+In order to better estimate where the lane is, we use a histogram on the bottom half of image:
 
 ![histogram](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/histogram.jpg)
 
 Then we divide the image in windows, and for each left and right window we find the mean of it, re-centering the window. The points inside the windows are stored. We then feed the numpy polyfit function to find the best second order polynomial to represent the lanes.
 
 
-#### 5. Radius of curvature of the Lane 
+#### Radius of curvature of the Lane 
 
-Radius of curvature is implemented from this [tutorial](https://www.intmath.com/applications-differentiation/8-radius-curvature.php). For second order polynomials, it is simplified to (1+(2Ay + B)**2)**1.5/ abs(2A)
+Radius of curvature is implemented from this [tutorial](https://www.intmath.com/applications-differentiation/8-radius-curvature.php). For second order polynomials, it is simplified to (1+(2Ay + B)**2)**1.5/ abs(2A).
 
-I calculated both radius curvature in pixel and real world spaces
+I calculated both radius curvature in pixel and real world spaces, for example, here is radius curvature of the example image:
 
-#### 6. Final output 
+```
+Pixel space: left curvature: 4826.07068768 , right curvature: 2966.83010737
+World space: left curvature: 2003.07070208 m , right curvature: 1745.93214794 m
+```
 
-Here is test image number 1 where lane area is identified clearly:
+Here is the final output of the test image number 1 where lane area is identified clearly:
 
 ![final putput](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/test_img_1_output.jpg)
 
@@ -120,12 +126,12 @@ Here is test image number 1 where lane area is identified clearly:
 
 ### Pipeline (video)
 
-#### Project video
+Here's a [link to my video result](https://youtu.be/SXy9soOvd4k) using the model above.
 
-Here's a [link to my video result](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_videos/project_video.mp4)
+Udacity recommended using python classes to keep track of the line detected between frames, however i finally use 'global' variable to do so.
 
 ---
 
 ### Discussion
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+One improvement that has been discussed on forum is to average lane lines over a few frames. However, since the video shows lane lines detected quite clearly for project video I did not try to implement it, maybe I can try for challenge video.
