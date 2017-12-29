@@ -51,7 +51,9 @@ Using Camera matrix and distortion coefficients from previous step, I apply dist
 
 I used a combination of color and gradient thresholds to filter out what we don’t want.
 
+```
 1. First , we do a color threshold filter to pick only yelow and white color of the road lanes
+```
 
 I first visualize 3 color spaces RGB, HLS and HSV (color space transformation is done using cv2). Among all, R-channel in RGB , S-channel in HLS and V-channel in HSV seem to work best in their respective space. Their difference is very insignificant. I eventually decided to use value-channel of HSV, although I believe others will do equavalently well. 
 
@@ -61,9 +63,14 @@ With some error and trial by observation, I find the threshold (210, 255) to per
 
 Note that this can be done by seperating yellow and white color but i simplified the process by fiding the threshold for both white and yellow.
 
+```
 2. Next, I apply Sober operator (x and y), magnitude and direction of the gradient. After a few trial and error, I deduced the min and max threshold for each of them
+```
 
+```
 3. The last thing is to combine threshold for both gradient and color
+```
+
 ![gradient + color](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/combine_binary.jpg)
 
 #### Perspective Transformation
