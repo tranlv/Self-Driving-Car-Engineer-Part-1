@@ -32,7 +32,7 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 
 I then used the output `obj_points` and `img_points` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
-![undistorted chessboard image](image1]
+![undistorted chessboard image](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/undistort_output.png)
 
 ### Pipeline (single images)
 
@@ -42,7 +42,8 @@ In order to demonstrate form the piple to detect lane lines, I selected the firs
 
 ![sample image](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/test_images/test1.jpg)
 
-Using Camera matrix and distortion coefficients from previous step, i apply distortion correction to this sample image
+Using Camera matrix and distortion coefficients from previous step, I apply distortion correction to this sample image
+
 ![undistort](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/undistort_test1.jpg)
 
 
