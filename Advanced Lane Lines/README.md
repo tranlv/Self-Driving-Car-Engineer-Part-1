@@ -19,7 +19,7 @@ The goals / steps of this project are the following:
 
 Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/29291e0ec5d644d672c7a55eb0a3f026) and [source code](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/src/advanced_lane_lines.py) of the project.
 
-The project video is [here](https://youtu.be/SXy9soOvd4k).
+The project video is [here](https://youtu.be/4DtVMp9Bu_g).
 
 Writeup 
 ---
@@ -134,7 +134,7 @@ Here is the final output of the test image number 1 where lane area is identifie
 
 ### Pipeline (video)
 
-Here's a [link to my video result](https://youtu.be/SXy9soOvd4k) using the model above.
+Here's a [link to my video result](https://youtu.be/4DtVMp9Bu_g) using the model above.
 
 Udacity recommended using python classes to keep track of the line detected between frames, however i finally use 'global' variable to do so.
 
