@@ -1,4 +1,4 @@
-# Vehicle Detection
+# **Vehicle Detection**
 
 In this project, our goal is to write a software pipeline to detect vehicles in a video (start with the test_video.mp4 and later implement on full project_video.mp4).
 
@@ -45,17 +45,25 @@ I then explored different color spaces and different `skimage.hog()` parameters 
 
 ![sample hog][https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Vehicle%20Detection/output_images/sample_car_hog.jpg]
 
-#### 2. Explain how you settled on your final choice of HOG parameters.
+I tried various combinations of parameters with trials and errors, I finaly chose to use spatial binning, color histogram  and hog features with the following parameters
 
-I tried various combinations of parameters and...
+```
+color space : 'YCrCb' 
+the number of orientation bins:  9 
+pix_per_cell = 8 
+cell_per_block = 2 
+hog_channel = "ALL" 
+spatial_size = (16, 16) 
+hist_bins = 16   
+```
 
-#### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
+I trained a linear SVM using the above features and parameters. 
 
-I trained a linear SVM using...
+I initially used RGB for color space but 'YCrCb' yielded better result. Number of orientation bins is 9 as it is recommended by original HOG paper. SVM was first recommended by udacity and actually provided good result so i did not tried other models.
+
+The final test accuracy was 0.98%
 
 ### Sliding Window Search
-
-#### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
 I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
 
