@@ -17,7 +17,7 @@ List of projects
 
 3. Project 2 - [Behavior Cloning](http://nbviewer.jupyter.org/gist/tranlyvu/671c4e258dcc5535f27e458e346c64e9): Clone driving behavior
 
-4. Project 3 - [Advanced Lane Lines Finding](hhttp://nbviewer.jupyter.org/gist/tranlyvu/ffb64be864e9b67cc2aa273d34df8b45): Identify the lane boundaries in a video
+4. Project 3 - [Advanced Lane Lines Finding](http://nbviewer.jupyter.org/gist/tranlyvu/ffb64be864e9b67cc2aa273d34df8b45): Identify the lane boundaries in a video
 
 5. Project 4 - [Vehicle Detection and Tracking](http://nbviewer.jupyter.org/gist/tranlyvu/3f15440e66a89c1b50bb4993878d1390): Detect vehicles in a video
 
