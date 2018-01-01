@@ -88,7 +88,7 @@ Here the resulting bounding boxes:
 
 #### Video Implementation
 
-Here is a [repo link](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detectionx/output_videos/project_video.mp4) and [Youtube link](https://youtu.be/5ArWpcyd7WQ) to my video.
+Here is a [repo link](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/output_videos/project_video.mp4) and [Youtube link](https://youtu.be/5ArWpcyd7WQ) to my video.
 
 #### Discussion
 
