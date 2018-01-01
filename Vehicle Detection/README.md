@@ -36,9 +36,9 @@ There is also recently released [Udacity labeled dataset](https://github.com/uda
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
-![sample car](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Vehicle%20Detection/output_images/sample_car_img.jpg)
+![sample car](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/output_images/sample_car_img.jpg)
 
-![sample non car](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Vehicle%20Detection/output_images/sample_non_car_img.jpg)
+![sample non car](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/output_images/sample_non_car_img.jpg)
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
@@ -70,7 +70,7 @@ The final test accuracy was 0.99
 
 For searching cars in an input image I use sliding window technique that taught by Udacity. It means that I iterate over image area that could contain cars with approximately car sized box and try to classify whether box contain car or not.  I use  sliding window sizes of 96 pixels side size. While iterating I use 50% window overlapping in horizontal and vertical directions. I also decided to search random window positions at random scales from bottom half of the image. Here is a sample of test images:
 
-![window](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Vehicle%20Detection/output_images/window_search.jpg)
+![window](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/output_images/window_search.jpg)
 
 
 In orer to eliminate overlapping detection and false positive, I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
@@ -79,16 +79,16 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 Here is a sample heatmap:
 
-![heatmap](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Vehicle%20Detection/output_images/sample_heatmap.jpg)
+![heatmap](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/output_images/sample_heatmap.jpg)
 
 Here the resulting bounding boxes:
 
-[output](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Vehicle%20Detection/output_images/sample_draw_img.jpg)
+[output](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/output_images/sample_draw_img.jpg)
 
 
 #### Video Implementation
 
-Here is a [repo link](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Vehicle%20Detectionx/output_videos/project_video.mp4) and [Youtube link](https://youtu.be/5ArWpcyd7WQ) to my video.
+Here is a [repo link](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detectionx/output_videos/project_video.mp4) and [Youtube link](https://youtu.be/5ArWpcyd7WQ) to my video.
 
 #### Discussion
 
