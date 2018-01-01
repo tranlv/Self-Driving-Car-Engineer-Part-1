@@ -44,7 +44,7 @@ I then explored different color spaces and different `skimage.hog()` parameters 
 
  HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
-![sample hog](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Vehicle%20Detection/output_images/sample_car_hog.jpg)
+![sample hog](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/output_images/sample_car_hog.jpg)
 
 I tried various combinations of parameters with trials and errors, I finaly chose to use spatial binning, color histogram and hog features with the following parameters
 
