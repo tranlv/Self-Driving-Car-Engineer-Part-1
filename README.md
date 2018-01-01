@@ -21,8 +21,15 @@ List of projects
 
 5. Project 4 - [Vehicle Detection and Tracking](http://nbviewer.jupyter.org/gist/tranlyvu/3f15440e66a89c1b50bb4993878d1390): Detect vehicles in a video
 
+Environmenet
+---
+
+In order to set up development environment to run all projects, follow instruction [here](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/env).
+
+
 Contribution
 ---
+
 Contributions are welcome! For bug reports or requests please submit an [issue](https://github.com/tranlyvu/autonomous-vehicle-projects/issues).
 
 Contact-info
