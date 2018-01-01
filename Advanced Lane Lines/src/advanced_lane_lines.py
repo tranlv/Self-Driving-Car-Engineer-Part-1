@@ -141,7 +141,24 @@ def drawing(undistorted_img, binary_warped, left_fit, right_fit, inverse_M, img_
     newwarp = cv2.warpPerspective(color_warp, inverse_M, img_size) 
     # Combine the result with the original image
     result = cv2.addWeighted(undistorted_img, 1, newwarp, 0.3, 0)
-    plt.imshow(result)
+
+    left_curvature_world_space = calculate_curvature_world_space(left_fit,  ploty)
+    right_curvature_world_space = calculate_curvature_world_space(right_fit,  ploty)
+    
+    average_curve_rad = (left_curvature_world_space + right_curvature_world_space)/2
+    curvature_string = "Radius of curvature: %.2f m" % average_curve_rad
+    cv2.putText(result,curvature_string , (100, 90), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (255,255,255), thickness=2)
+
+    # compute the offset from the center
+    num_rows = binary_warped.shape[0]
+    lane_center = (left_fitx + right_fitx)/2
+    xm_per_pix = 3.7/700 # meters per pixel in x dimension
+    center_offset_pixels = abs(img_size[0]/2 - lane_center)
+    center_offset_mtrs = xm_per_pix*center_offset_pixels
+    #print(np.shape(center_offset_mtrs))
+    offset_string = "Center offset: %.2f m" % center_offset_mtrs[0]
+    cv2.putText(result, offset_string, (100, 150), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (255,255,255), thickness=2)
+    
     return result
 
 def sliding_window_polyfit(binary_warped):
