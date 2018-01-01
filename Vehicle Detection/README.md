@@ -62,7 +62,7 @@ I trained a linear SVM using the above features and parameters.
 
 I initially used RGB for color space but 'YCrCb' yielded better result. Number of orientation bins is 9 as it is recommended by original HOG paper. SVM was first recommended by udacity and actually provided good result so i did not tried other models.
 
-I as also normalizing the training data as recommended by Udacyty with sklearn.preprocessing.StandardScaler()
+I was also normalizing the training data as recommended by Udacyty with sklearn.preprocessing.StandardScaler()
 
 The final test accuracy was 0.99
 
@@ -83,7 +83,7 @@ Here is a sample heatmap:
 
 Here the resulting bounding boxes:
 
-[output](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/output_images/sample_draw_img.jpg)
+![output](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/output_images/sample_draw_img.jpg)
 
 
 #### Video Implementation
