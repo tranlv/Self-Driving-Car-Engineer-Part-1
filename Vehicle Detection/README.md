@@ -17,7 +17,7 @@ The goals / steps of this project are the following:
 
 Here are links to the labeled data for [vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/vehicles.zip) and [non-vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/non-vehicles.zip) examples to train your classifier.  These example images come from a combination of the [GTI vehicle image database](http://www.gti.ssr.upm.es/data/Vehicle_database.html), the [KITTI vision benchmark suite](http://www.cvlibs.net/datasets/kitti/), and examples extracted from the project video itself.   You are welcome and encouraged to take advantage of the recently released [Udacity labeled dataset](https://github.com/udacity/self-driving-car/tree/master/annotations) to augment your training data.  
 
-Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/825bd12888f0ca91d80b8731cb86a941) and [source code](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/src/vehicle_detection.py) of this project.
+Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/3f15440e66a89c1b50bb4993878d1390) and [source code](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/src/vehicle_detection.py) of this project.
 
 Here is [Youtube link](https://youtu.be/5ArWpcyd7WQ) to video.
 
@@ -54,6 +54,8 @@ I trained a linear SVM using the above features and parameters.
 
 I initially used RGB for color space but 'YCrCb' yielded better result. Number of orientation bins is 9 as it is recommended by original HOG paper. SVM was first recommended by udacity and actually provided good result so i did not tried other models.
 
+I as also normalizing the training data as recommended by Udacyty with sklearn.preprocessing.StandardScaler()
+
 The final test accuracy was 0.99
 
 #### Sliding Window Search
@@ -82,5 +84,10 @@ Here is a [repo link](https://github.com/tranlyvu/autonomous-vehicle-projects/tr
 
 #### Discussion
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+From my video, there are some redundant boxes although cars have been detected. Here are a few things I could consider doing if i were to have more times: 
 
+```
+- Try new classifier, i.e decision tree
+- Try to use more data, i.e through augmentation
+- Doing more parameters tuning ,etc
+```
