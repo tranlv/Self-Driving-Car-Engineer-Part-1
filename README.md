@@ -19,7 +19,7 @@ List of projects
 
 4. Project 3 - [Advanced Lane Lines Finding](http://nbviewer.jupyter.org/gist/tranlyvu/29291e0ec5d644d672c7a55eb0a3f026): Identify the lane boundaries in a video
 
-5. Project 4 - Vehicle Detection and Tracking: Detect vehicles in a video
+5. Project 4 - [Vehicle Detection and Tracking](http://nbviewer.jupyter.org/gist/tranlyvu/825bd12888f0ca91d80b8731cb86a941): Detect vehicles in a video
 
 Contribution
 ---

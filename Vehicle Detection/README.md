@@ -17,16 +17,9 @@ The goals / steps of this project are the following:
 
 Here are links to the labeled data for [vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/vehicles.zip) and [non-vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/non-vehicles.zip) examples to train your classifier.  These example images come from a combination of the [GTI vehicle image database](http://www.gti.ssr.upm.es/data/Vehicle_database.html), the [KITTI vision benchmark suite](http://www.cvlibs.net/datasets/kitti/), and examples extracted from the project video itself.   You are welcome and encouraged to take advantage of the recently released [Udacity labeled dataset](https://github.com/udacity/self-driving-car/tree/master/annotations) to augment your training data.  
 
+Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/825bd12888f0ca91d80b8731cb86a941) and [source code](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/src/vehicle_detection.py) of this project.
 
-[//]: # (Image References)
-[image1]: ./examples/car_not_car.png
-[image2]: ./examples/HOG_example.jpg
-[image3]: ./examples/sliding_windows.jpg
-[image4]: ./examples/sliding_window.jpg
-[image5]: ./examples/bboxes_and_heat.png
-[image6]: ./examples/labels_map.png
-[image7]: ./examples/output_bboxes.png
-[video1]: ./project_video.mp4
+Here is [Youtube link](https://youtu.be/5ArWpcyd7WQ) to video.
 
 ---
 ### Project Writeup
@@ -45,7 +38,7 @@ I then explored different color spaces and different `skimage.hog()` parameters 
 
 ![sample hog][https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Vehicle%20Detection/output_images/sample_car_hog.jpg]
 
-I tried various combinations of parameters with trials and errors, I finaly chose to use spatial binning, color histogram  and hog features with the following parameters
+I tried various combinations of parameters with trials and errors, I finaly chose to use spatial binning, color histogram and hog features with the following parameters
 
 ```
 color space : 'YCrCb' 
@@ -61,50 +54,33 @@ I trained a linear SVM using the above features and parameters.
 
 I initially used RGB for color space but 'YCrCb' yielded better result. Number of orientation bins is 9 as it is recommended by original HOG paper. SVM was first recommended by udacity and actually provided good result so i did not tried other models.
 
-The final test accuracy was 0.98%
+The final test accuracy was 0.99
 
-### Sliding Window Search
+#### Sliding Window Search
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+For searching cars in an input image I use sliding window technique that taught by Udacity. It means that I iterate over image area that could contain cars with approximately car sized box and try to classify whether box contain car or not.  I use  sliding window sizes of 96 pixels side size. While iterating I use 50% window overlapping in horizontal and vertical directions. I also decided to search random window positions at random scales from bottom half of the image. Here is a sample of test images:
 
-![alt text][image3]
-
-#### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
-
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
-
-![alt text][image4]
----
-
-### Video Implementation
-
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./project_video.mp4)
+![window][https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Vehicle%20Detectionx/output_images/window_search.jpg]
 
 
-#### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
-
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
+In orer to eliminate overlapping detection and false positive, I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
 
 Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
 
-### Here are six frames and their corresponding heatmaps:
+Here is a sample heatmap:
 
-![alt text][image5]
+![heatmap][https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Vehicle%20Detectionx/output_images/sample_heatmap.jpg]
 
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
-![alt text][image6]
+Here the resulting bounding boxes:
 
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
-![alt text][image7]
+![output][https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Vehicle%20Detectionx/output_images/sample_draw_img.jpg]
 
 
+#### Video Implementation
 
----
+Here is a [repo link](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Vehicle%20Detectionx/output_videos/project_video.mp4) and [Youtube link](https://youtu.be/5ArWpcyd7WQ) to my video.
 
-### Discussion
-
-#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+#### Discussion
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
 
