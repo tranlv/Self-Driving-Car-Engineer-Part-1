@@ -145,20 +145,31 @@ def drawing(undistorted_img, binary_warped, left_fit, right_fit, inverse_M, img_
     left_curvature_world_space = calculate_curvature_world_space(left_fit,  ploty)
     right_curvature_world_space = calculate_curvature_world_space(right_fit,  ploty)
     
-    average_curve_rad = (left_curvature_world_space + right_curvature_world_space)/2
-    curvature_string = "Radius of curvature: %.2f m" % average_curve_rad
+    curvature_string = "Left Radius of curvature: %.2f m" % left_curvature_world_space
     cv2.putText(result,curvature_string , (100, 90), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (255,255,255), thickness=2)
-
-    # compute the offset from the center
-    num_rows = binary_warped.shape[0]
-    lane_center = (left_fitx + right_fitx)/2
-    xm_per_pix = 3.7/700 # meters per pixel in x dimension
-    center_offset_pixels = abs(img_size[0]/2 - lane_center)
-    center_offset_mtrs = xm_per_pix*center_offset_pixels
-    #print(np.shape(center_offset_mtrs))
-    offset_string = "Center offset: %.2f m" % center_offset_mtrs[0]
-    cv2.putText(result, offset_string, (100, 150), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (255,255,255), thickness=2)
     
+    curvature_string = "Right Radius of curvature: %.2f m" % right_curvature_world_space
+    cv2.putText(result,curvature_string , (100, 150), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (255,255,255), thickness=2)
+
+    
+    # compute the offset from the center\
+
+    xm_per_pix = 3.7/700 # meters per pixel in x dimension
+    ym_per_pix = 30/720
+
+    # Fit a second order polynomial to each
+    left_fit_m = np.polyfit(ploty*ym_per_pix, left_fitx*xm_per_pix, 2)
+    right_fit_m = np.polyfit(ploty*ym_per_pix, right_fitx*xm_per_pix, 2)
+
+    xMax = img.shape[1]*xm_per_pix
+    yMax = img.shape[0]*ym_per_pix
+    vehicleCenter = xMax / 2
+    lineLeft = left_fit_m[0]*yMax**2 + left_fit_m[1]*yMax + left_fit_m[2]
+    lineRight = right_fit_m[0]*yMax**2 + right_fit_m[1]*yMax + right_fit_m[2]
+    lineMiddle = lineLeft + (lineRight - lineLeft)/2
+    diffFromVehicle = lineMiddle - vehicleCenter
+    offset_string = "Center offset: %.2f m" % diffFromVehicle
+    cv2.putText(result, offset_string, (100, 210), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (255,255,255), thickness=2)
     return result
 
 def sliding_window_polyfit(binary_warped):
