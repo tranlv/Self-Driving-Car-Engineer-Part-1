@@ -1,6 +1,6 @@
 # **Finding Lane Lines on the Road** 
 
-<img src="examples/laneLines_thirdPass.jpg" width="480" alt="Combined Image" />
+<img src="../img/finding-lane-lines.jpg" width="480" alt="Combined Image" />
 
 ---
 Overview
