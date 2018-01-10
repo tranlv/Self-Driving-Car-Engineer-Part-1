@@ -74,12 +74,11 @@ For searching cars in an input image I use sliding window technique that taught 
 
 ![window](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/output_images/window_search.jpg)
 
+#### Eliminating False Positive
 
-In orer to eliminate overlapping detection and false positive, I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
+In order to eliminate overlapping detection and false positive, I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
 
 Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
-
-Here is a sample heatmap:
 
 ![heatmap](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/output_images/sample_heatmap.jpg)
 
@@ -87,12 +86,13 @@ Here the resulting bounding boxes:
 
 ![output](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/output_images/sample_draw_img.jpg)
 
-
-#### Video Implementation
+---
+### Video Implementation
 
 Here is a [repo link](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/output_videos/project_video.mp4) and [Youtube link](https://youtu.be/5ArWpcyd7WQ) to my video.
 
-#### Discussion
+---
+### Discussion
 
 From my video, there are some redundant boxes although cars have been detected. Here are a few things I could consider doing if i were to have more times: 
 
