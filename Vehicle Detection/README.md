@@ -6,7 +6,7 @@
 Overview
 ---
 
-In this project, we created a vehicle detection and tracking pipeline with OpenCV, histogram of oriented gradients (HOG), and support vector machines (SVM), optimizing and evaluated the model on video data from a automotive camera taken during highway driving (start with the test_video.mp4 and later implement on full project_video.mp4).
+In this project, we created a vehicle detection and tracking pipeline with OpenCV, histogram of oriented gradients (HOG), and support vector machines (SVM), optimizing and evaluating the model on video data from a automotive camera taken during highway driving (start with the test_video.mp4 and later implement on full project_video.mp4).
 
 The goals / steps of this project are the following:
 
