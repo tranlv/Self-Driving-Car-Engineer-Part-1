@@ -1,4 +1,4 @@
-## **Traffic Sign Classification**
+## **Traffic Sign Recognition Classifier**
 
 <img src="../img/traffic-sign-classifier.jpg" width="480" alt="Combined Image" />
 
