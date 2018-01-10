@@ -1,10 +1,12 @@
 # **Driving Behavior Cloning** 
 
+<img src="../img/behavior-cloning.jpg" width="480" alt="Combined Image" />
+
 ---
 Overview
 ---
 
-In this project, we will use deep neural networks and convolutional neural networks to clone driving behavior. The model will output a steering angle to an autonomous vehicle.
+In this project, We built and trained a convolutional neural network for end-to-end driving in a simulator, using TensorFlow and Keras. We used optimization techniques such as regularization and dropout to generalize the network for driving on multiple tracks. The model will output a steering angle to an autonomous vehicle.
 
 The goals / steps of this project are the following:
 * Use the [simulator](https://github.com/udacity/self-driving-car-sim) to collect data of good driving behavior 
@@ -16,6 +18,7 @@ Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/671c4e258dcc55
 
 The project video is [here](https://youtu.be/TYh4y5VDFkE).
 
+---
 Project Writeup
 ---
 
