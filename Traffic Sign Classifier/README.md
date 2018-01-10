@@ -19,7 +19,7 @@ The goals / steps of this project are the following:
 Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/83ae4a2ef68908f33b3c4f3d11b1e374) and [source code](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/src/second_attempt.py) of this project.
 
 ---
-Project writeup
+Project Writeup
 ---
 
 ### Data Set Summary & Exploration
@@ -28,7 +28,8 @@ Project writeup
 
 Udacity provided the German Traffic Sign Dataset in pickled form which is loaded using Python package 'pickle'
 
-The provided dataset has 3 separate sets: training, validation and test sets, hence i do not have to split data for validation purpose. Here are some information:
+The provided dataset has 3 separate sets: training, validation and test sets, hence I do not have to split data for validation purpose. Here are some information:
+
 ```
 The size of training set is 34799
 The size of the validation set is 4410
@@ -47,7 +48,7 @@ I have also plotted out 10 random images which can be seen in notebook.
 
 ### Design and Test a Model Architecture
 
-#### Image data pre-processing
+#### Image Data Pre-Processing
 
 As a first step, I decided to convert the images to grayscale to convert to 1 channel image and remove the effect of color. 
 
@@ -57,7 +58,7 @@ Here is an example of an image after preprocessing.
 
 ![pre-processed](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/test_images_output/preprocessed_img.jpg)
 
-#### Model architecture and training
+#### Model Architecture and Training
 
 My first attempt was to try the famous Lenet-5 model as recommended by Udacity because convolutional model is considered to performed best on object recognition:
 
@@ -154,7 +155,7 @@ Here are five German traffic signs that I found on the web:
 ![img1](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/stop_sign.jpg) ![img2](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/yield_sign.jpg) ![img3](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/road_work.jpg) 
 ![img4](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/left_turn.jpeg) ![img5](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/new_images/60_kmh.jpg)
 
-The main difficulty was o resize the image to 32x32x1 to fit into my lenet-based model.
+The main difficulty was to resize the image to 32x32x1 to fit into my lenet-based model.
 
 #### Model's predictions on new traffic signs 
 
@@ -196,8 +197,8 @@ The model predicted correctly the second image - the Yield sign (almost 1)
 
 Other images can be seen from the notebook
 
-Overrall, the current model is uncertain as it does not predict well with new images. I'm still not sure the reason
+Overall, the current model is uncertain as it does not predict well with new images. I'm still not sure the reason
 
 
-### (Optional) Visualizing the Neural Network and discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+### (Optional) Visualizing the Neural Network and discuss the visual output of your trained network's feature maps as well as characteristics the neural network use to make classifications
 
