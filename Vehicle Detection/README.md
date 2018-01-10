@@ -1,10 +1,12 @@
 # **Vehicle Detection**
 
-In this project, our goal is to write a software pipeline to detect vehicles in a video (start with the test_video.mp4 and later implement on full project_video.mp4).
+<img src="../img/vehicle-detection.jpg" width="480" alt="Combined Image" />
 
-
-The Project
 ---
+Overview
+---
+
+In this project, we created a vehicle detection and tracking pipeline with OpenCV, histogram of oriented gradients (HOG), and support vector machines (SVM), optimizing and evaluated the model on video data from a automotive camera taken during highway driving (start with the test_video.mp4 and later implement on full project_video.mp4).
 
 The goals / steps of this project are the following:
 
@@ -15,13 +17,13 @@ The goals / steps of this project are the following:
 * Run your pipeline on a video stream (start with the test_video.mp4 and later implement on full project_video.mp4) and create a heat map of recurring detections frame by frame to reject outliers and follow detected vehicles.
 * Estimate a bounding box for vehicles detected.
 
-
 Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/3f15440e66a89c1b50bb4993878d1390) and [source code](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Vehicle%20Detection/src/vehicle_detection.py) of this project.
 
 Here is [Youtube link](https://youtu.be/5ArWpcyd7WQ) to video.
 
 ---
-### Project Writeup
+Project Writeup
+---
 
 ### Dataset
 
