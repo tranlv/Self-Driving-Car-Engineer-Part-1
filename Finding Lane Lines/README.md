@@ -10,7 +10,7 @@ When we drive, we use our eyes to decide where to go. The lines on the road that
 
 The project objective is to detect lane lines in images using Python and OpenCV. 
 
-Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/df59fa9ea4a18f373947ca5c04bec801) and [source code](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Finding%20Lane%20Lines/src/finding_lane_lines.py) of this project. Also, I have tested the project on 2 videos with [solid white lane lines](https://youtu.be/8O3j7ffj7MA) and [solid yellow white lane lines](https://youtu.be/vHA4nryV8QI)
+Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/df59fa9ea4a18f373947ca5c04bec801) and [source code](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Finding%20Lane%20Lines/src/finding_lane_lines.py) of this project. Also, I have tested the project on 2 videos with [solid white lane lines](https://youtu.be/8O3j7ffj7MA) and [solid yellow white lane lines](https://youtu.be/vHA4nryV8QI).
 
 ---
 Project writeup 
