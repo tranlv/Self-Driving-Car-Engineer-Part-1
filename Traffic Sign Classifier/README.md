@@ -1,5 +1,8 @@
-## Traffic Sign Classification
+## **Traffic Sign Classification**
 
+<img src="../img/traffic-sign-classifier.jpg" width="480" alt="Combined Image" />
+
+---
 Overview
 ---
 
@@ -15,6 +18,7 @@ The goals / steps of this project are the following:
 
 Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/83ae4a2ef68908f33b3c4f3d11b1e374) and [source code](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Traffic%20Sign%20Classifier/src/second_attempt.py) of this project.
 
+---
 Project writeup
 ---
 
@@ -125,9 +129,10 @@ Here are some information of my model training
 - Nnumber of epochs: 40 
 - learning rate: 0.0001
 
-
 ```
+
 My final model results were:
+
 
 ```
 - training set accuracy of: 0.998%
@@ -194,6 +199,5 @@ Other images can be seen from the notebook
 Overrall, the current model is uncertain as it does not predict well with new images. I'm still not sure the reason
 
 
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+### (Optional) Visualizing the Neural Network and discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
 
