@@ -1,10 +1,12 @@
 # **Advanced Lane Finding**
 
-In this project, We attempted to identify the lane boundaries in a video.
+<img src="../img/advanced-lane-lines.jpg" width="480" alt="Combined Image" />
 
-
-The Project
 ---
+Overview
+---
+
+In this project, We attempted to identify the lane boundaries in a video by building an advanced lane-finding algorithm using distortion correction, image rectification, color transforms, and gradient thresholding , identified lane curvature and vehicle displacement, overcame environmental challenges such as shadows and pavement changes.
 
 The goals / steps of this project are the following:
 
@@ -21,10 +23,11 @@ Here are the [notebook](http://nbviewer.jupyter.org/gist/tranlyvu/ffb64be864e9b6
 
 The project video is [here](https://youtu.be/Wj_g8cDhfO0).
 
-Writeup 
+---
+Project Writeup 
 ---
 
-### Camera Calibration and distortion correction
+### Camera Calibration and Distortion Correction
 
 The code for this step is contained in the 4th and 6th code cells of the IPython notebook located in "/notebook/advanced_lane_lines.ipynb" (or in lines 19 through 49 in /src/advanced_lane_lines.py).  
 
@@ -131,7 +134,6 @@ Here is the final output of the test image number 1 where lane area is identifie
 ![final putput](https://github.com/tranlyvu/autonomous-vehicle-projects/blob/master/Advanced%20Lane%20Lines/output_images/test_img_1_output.jpg)
 
 ---
-
 ### Pipeline (video)
 
 Here's a [link to my video result](https://youtu.be/Wj_g8cDhfO0) using the model above.
@@ -139,7 +141,6 @@ Here's a [link to my video result](https://youtu.be/Wj_g8cDhfO0) using the model
 Udacity recommended using python classes to keep track of the line detected between frames, however i finally use 'global' variable to do so.
 
 ---
-
 ### Discussion
 
 One improvement that has been discussed on forum is to average lane lines over a few frames. However, since the video shows lane lines detected quite clearly for project video I did not try to implement it, maybe I can try for challenge video.
