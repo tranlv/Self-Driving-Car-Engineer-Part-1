@@ -17,7 +17,7 @@ List of projects
 
 * Project 1 - [Traffic Sign Recognition Classifier](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Traffic%20Sign%20Classifier): Classify traffic signs using deep learning - [Notebook](http://nbviewer.jupyter.org/gist/tranlyvu/83ae4a2ef68908f33b3c4f3d11b1e374).
 
-* Project 2 - [Behavior Cloning](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Behavior%20Cloning): Clone driving behavior - [Notebook](http://nbviewer.jupyter.org/gist/tranlyvu/671c4e258dcc5535f27e458e346c64e9).
+* Project 2 - [Driving Behavior Cloning](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Behavior%20Cloning): Clone driving behavior - [Notebook](http://nbviewer.jupyter.org/gist/tranlyvu/671c4e258dcc5535f27e458e346c64e9).
 
 * Project 3 - [Advanced Lane Lines Finding](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Advanced%20Lane%20Lines): Identify the lane boundaries in a video - [Notebook](http://nbviewer.jupyter.org/gist/tranlyvu/ffb64be864e9b67cc2aa273d34df8b45).
 
