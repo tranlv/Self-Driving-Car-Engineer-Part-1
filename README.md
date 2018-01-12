@@ -1,11 +1,8 @@
 # **Autonomous Vehicle Projects**
 
-<img src="img/self-driving-car.jpg" width="480" alt="Combined Image" />
+A collection of all of my autonomous vehicle projects.
 
----
-Overview
----
-The repo contains autonomous vehicle projects.
+<img src="img/self-driving-car.jpg" width="480" alt="Combined Image" />
 
 ---
 List of projects
@@ -24,16 +21,32 @@ List of projects
 * Project 4 - [Vehicle Detection and Tracking](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Vehicle%20Detection): Detect vehicles in a video - [Notebook](http://nbviewer.jupyter.org/gist/tranlyvu/3f15440e66a89c1b50bb4993878d1390).
 
 ---
-Development Environment
+Development Setup
 ---
 
 In order to set up development environment to run all projects, follow instruction [here](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/env).
+
+--- 
+Release History
+---
+
+I do not keep track of release history for this repo.
 
 ---
 Contribution
 ---
 
 Contributions are welcome! For bug reports or requests please submit an [issue](https://github.com/tranlyvu/autonomous-vehicle-projects/issues).
+
+For new feature contribution, please follow the following instruction:
+
+```
+1. Fork it (https://github.com/tranlyvu/wiki-link.git)
+2. Create your feature branch (`git checkout -b feature/new`)
+3. Commit your changes (`git commit -am 'Add some new feature'`)
+4. Push to the branch (`git push origin feature/new`)
+5. Create a new Pull Request
+```
 
 ---
 Contact
