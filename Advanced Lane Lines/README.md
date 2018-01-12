@@ -6,7 +6,7 @@
 Overview
 ---
 
-In this project, We attempted to identify the lane boundaries in a video by building an advanced lane-finding algorithm using distortion correction, image rectification, color transforms, and gradient thresholding , identified lane curvature and vehicle displacement, overcame environmental challenges such as shadows and pavement changes.
+In this project, We attempted to identify the lane boundaries in a video by building an advanced lane-finding algorithm using distortion correction, image rectification, color transforms, and gradient thresholding , also identified lane curvature and vehicle displacement, overcame environmental challenges such as shadows and pavement changes.
 
 The goals / steps of this project are the following:
 
