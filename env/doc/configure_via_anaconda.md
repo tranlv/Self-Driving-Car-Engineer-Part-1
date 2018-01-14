@@ -39,18 +39,18 @@ Using Anaconda consists of the following:
 - **Mac:** http://conda.pydata.org/docs/install/quick.html#os-x-miniconda-install
 - **Windows:** http://conda.pydata.org/docs/install/quick.html#windows-miniconda-install
 
-**Setup** the `carnd-term1` environment. 
+**Setup** the `autonomous-vehicle-projects` environment. 
 
 ```sh
-git clone https://github.com/udacity/CarND-Term1-Starter-Kit.git
-cd CarND-Term1-Starter-Kit
+ghttps://github.com/tranlyvu/autonomous-vehicle-projects.git
+cd autonomous-vehicle-projects/env
 ```
 
 If you are on Windows, **rename**   
 `meta_windows_patch.yml` to   
 `meta.yml`
 
-**Create** carnd-term1.  Running this command will create a new `conda` environment that is provisioned with all libraries you need to be successful in this program.
+**Create** autonomous-vehicle-projects.  Running this command will create a new `conda` environment that is provisioned with all libraries you need to be successful in this program.
 ```
 conda env create -f environment.yml
 ```
@@ -64,7 +64,7 @@ with
     - https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.12.1-py3-none-any.whl
 ```
 
-**Verify** that the carnd-term1 environment was created in your environments:
+**Verify** that the autonomous-vehicle-projects environment was created in your environments:
 
 ```sh
 conda info --envs
@@ -81,7 +81,7 @@ conda clean -tp
 To uninstall the environment:
 
 ```sh
-conda env remove -n carnd-term1
+conda env remove -n autonomous-vehicle-projects
 ```
 
 ---
@@ -90,23 +90,23 @@ conda env remove -n carnd-term1
 
 Now that you have created an environment, in order to use it, you will need to activate the environment. This must be done **each** time you begin a new working session i.e. open a new terminal window. 
 
-**Activate** the `carnd-term1` environment:
+**Activate** the `autonomous-vehicle-projects` environment:
 
 ### OS X and Linux
 ```sh
-$ source activate carnd-term1
+$ source activate autonomous-vehicle-projects
 ```
 ### Windows
 Depending on shell either:
 ```sh
-$ source activate carnd-term1
+$ source activate autonomous-vehicle-projects
 ```
 or
 
 ```sh
-$ activate carnd-term1
+$ activate autonomous-vehicle-projects
 ```
 
-That's it. Now all of the `carnd-term1` libraries are available to you.
+That's it. Now all of the `autonomous-vehicle-projects` libraries are available to you.
 
 To exit the environment when you have completed your work session, simply close the terminal window.
