@@ -1,42 +1,118 @@
-# Development Environment
+# **Development Environment**
 
-The purpose of this directory is to provide unified software dependency support for all my projects. This is forked from [Udacity Self-Driving Car Engineer Nanodegree](https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013)'s evelopment environment.
+Per the Anaconda [docs](http://conda.pydata.org/docs):
 
-Python 3 is used.
-
-There are two ways to get up and running:
-
----
-[Anaconda Environment](doc/configure_via_anaconda.md)
----
-
-Get started [here](doc/configure_via_anaconda.md). More info [here](http://conda.pydata.org/docs/).
-
-Supported Sytems: Linux (CPU), Mac (CPU), Windows (CPU)     
-
-| Pros                         | Cons                                               |
-|------------------------------|----------------------------------------------------|
-| More straight-forward to use | AWS or GPU support is not built in (have to do this yourself)              |
-| More community support       | Implementation is local and OS specific            |
-| More heavily adopted         |                                                    |
+> Conda is an open source package management system and environment management system 
+for installing multiple versions of software packages and their dependencies and 
+switching easily between them. It works on Linux, OS X and Windows, and was created 
+for Python programs but can package and distribute any software.
 
 ---
-[Docker](doc/configure_via_docker.md)
+## Overview
 ---
 
-Get started [here](doc/configure_via_docker.md). More info [here](http://docker.com).
+Using Anaconda consists of the following:
 
-Supported Systems : AWS (CPU, [GPU](doc/docker_for_aws.md)), Linux (CPU), Mac (CPU), Windows (CPU)     
-
-| Pros                                | Cons                                 |
-|-------------------------------------|--------------------------------------|
-| Configure once for all environments | More challenging to use              |
-| AWS, GPU support                    | Less community support               |
-| Practice with Docker              | Have to manage images and containers |
-|                                     |                                      |
+1. Install [`miniconda`](http://conda.pydata.org/miniconda.html) on your computer
+2. Create a new `conda` [environment](http://conda.pydata.org/docs/using/envs.html) using this project
+3. Each time you wish to work, activate your `conda` environment
 
 ---
-Trouble Shooting
+## Installation
 ---
 
-If you get an Import Error on cv2 and have ROS installed. See (here)[https://stackoverflow.com/questions/43019951/after-install-ros-kinetic-cannot-import-opencv#]
+**Download** the latest version of `miniconda` that matches your system.
+
+**NOTE**: There have been reports of issues creating an environment using miniconda `v4.3.13`. If it gives you issues try versions `4.3.11` or `4.2.12` from [here](https://repo.continuum.io/miniconda/).
+
+|        | Linux | Mac | Windows | 
+|--------|-------|-----|---------|
+| 64-bit | [64-bit (bash installer)][lin64] | [64-bit (bash installer)][mac64] | [64-bit (exe installer)][win64]
+| 32-bit | [32-bit (bash installer)][lin32] |  | [32-bit (exe installer)][win32]
+
+[win64]: https://repo.continuum.io/miniconda/Miniconda3-latest-Windows-x86_64.exe
+[win32]: https://repo.continuum.io/miniconda/Miniconda3-latest-Windows-x86.exe
+[mac64]: https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+[lin64]: https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+[lin32]: https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86.sh
+
+**Install** [miniconda](http://conda.pydata.org/miniconda.html) on your machine. Detailed instructions:
+
+- **Linux:** http://conda.pydata.org/docs/install/quick.html#linux-miniconda-install
+- **Mac:** http://conda.pydata.org/docs/install/quick.html#os-x-miniconda-install
+- **Windows:** http://conda.pydata.org/docs/install/quick.html#windows-miniconda-install
+
+**Setup** the `autonomous-vehicle-projects` environment. 
+
+```sh
+ghttps://github.com/tranlyvu/autonomous-vehicle-projects.git
+cd autonomous-vehicle-projects/env
+```
+
+If you are on Windows, **rename**   
+`meta_windows_patch.yml` to `meta.yml`
+
+**Create** autonomous-vehicle-projects.  Running this command will create a new `conda` environment that is provisioned with all libraries you need to be successful in this program.
+```
+conda env create -f environment.yml
+```
+
+*Note*: Some Mac users have reported issues installing TensorFlow using this method. The cause is unknown but seems to be related to `pip`. For the time being, we recommend opening environment.yml in a text editor and swapping
+```yaml
+    - tensorflow==0.12.1
+```
+with
+```yaml
+    - https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.12.1-py3-none-any.whl
+```
+
+**Verify** that the autonomous-vehicle-projects environment was created in your environments:
+
+```
+conda info --envs
+```
+
+**Cleanup** downloaded libraries (remove tarballs, zip files, etc):
+
+```
+conda clean -tp
+```
+
+### Uninstalling 
+
+To uninstall the environment:
+
+```
+conda env remove -n autonomous-vehicle-projects
+```
+
+---
+## Using Anaconda
+---
+
+Now that you have created an environment, in order to use it, you will need to activate the environment. This must be done **each** time you begin a new working session i.e. open a new terminal window. 
+
+**Activate** the `autonomous-vehicle-projects` environment:
+
+### OS X and Linux
+
+```
+$ source activate autonomous-vehicle-projects
+```
+
+### Windows
+
+Depending on shell either:
+
+```
+$ source activate autonomous-vehicle-projects
+```
+or
+
+```
+$ activate autonomous-vehicle-projects
+```
+
+That's it. Now all of the `autonomous-vehicle-projects` libraries are available to you.
+
+To exit the environment when you have completed your work session, simply close the terminal window.
