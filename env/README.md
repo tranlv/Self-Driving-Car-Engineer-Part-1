@@ -44,8 +44,8 @@ Using Anaconda consists of the following:
 
 **Setup** the `autonomous-vehicle-projects` environment. 
 
-```sh
-ghttps://github.com/tranlyvu/autonomous-vehicle-projects.git
+```
+git clone https://github.com/tranlyvu/autonomous-vehicle-projects.git
 cd autonomous-vehicle-projects/env
 ```
 
