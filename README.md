@@ -5,7 +5,7 @@ A collection of all of my autonomous vehicle projects.
 <img src="img/self-driving-car.jpg" width="480" alt="Combined Image" />
 
 ---
-List of projects
+List of Projects
 ---
 
 ### [Self-Driving Car Engineer Nanodegree Projects](https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013) 
@@ -41,11 +41,11 @@ Contributions are welcome! For bug reports or requests please submit an [issue](
 For new feature contribution, please follow the following instruction:
 
 ```
-1. Fork it (https://github.com/tranlyvu/autonomous-vehicle-projects.git)
-2. Create your feature branch (`git checkout -b new-feat`)
+1. Fork the repo (`$git clone https://github.com/tranlyvu/autonomous-vehicle-projects.git)
+2. Create your feature branch (`git checkout -b new/your-feature`)
 3. Commit your changes (`git commit -am 'Add some new feature'`)
-4. Push to the branch (`git push origin new-feat`)
-5. Create a new Pull Request
+4. Push to the branch (`git push origin new/your-feature`)
+5. Create a new Pull Request at https://github.com/tranlyvu/autonomous-vehicle-projects/pulls
 ```
 
 ---
