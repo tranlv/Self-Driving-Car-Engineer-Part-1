@@ -104,6 +104,8 @@ public:
   void UpdateRadar(MeasurementPackage meas_package);
 
     void GenerateSigmaPoints(MatrixXd* Xsig_out);
+
+    MatrixXd UKF::AugmentedSigmaPoints();
 };
 
 #endif /* UKF_H */
