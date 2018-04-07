@@ -54,7 +54,6 @@ Contact
 
 Feel free to contact me to discuss any issues, questions, or comments.
 *  Email: vutransingapore@gmail.com
-*  Twitter: [@vutransingapore](https://twitter.com/vutransingapore)
 *  GitHub: [Tran Ly Vu](https://github.com/tranlyvu)
 
 ---
