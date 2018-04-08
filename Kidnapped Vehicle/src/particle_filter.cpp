@@ -29,11 +29,11 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
 	// Add random Gaussian noise to each particle.
 	// NOTE: Consult particle_filter.h for more information about this method (and othe[rs in this file).
 
-	normal_distribution<double> dist_x(x, std[0])
+	normal_distribution<double> dist_x(x, std[0]);
 	normal_distribution<double> dist_y(y, std[1]);
 	normal_distribution<double> dist_theta(theta, std[2]);
 
-	num_particles = 100
+	num_particles = 100;
 
 	particles = vector<Particle>(num_particles);
 
@@ -58,13 +58,13 @@ void ParticleFilter::prediction(double delta_t, double std_pos[], double velocit
 	//  http://www.cplusplus.com/reference/random/default_random_engine/
 
 
-	normal_distribution<double> dist_x(x, std_pos[0])
-	normal_distribution<double> dist_y(y, std_pos[1]);
-	normal_distribution<double> dist_theta(theta, std_pos[2]);
+	normal_distribution<double> dist_x(0, std_pos[0]);
+	normal_distribution<double> dist_y(0, std_pos[1]);
+	normal_distribution<double> dist_theta(0, std_pos[2]);
 
 	for (auto &p: particles) {
-		p.x = p.x + (velocity/yaw_rate)(sin(p.theta + yaw_rate * delta_t) - sin(p.theta)) + dist_x(gen);
-		p.y = p.y + (velocity/yaw_rate)(cos(p.theta) - cos(theta + yaw_rate * delta_t)) + dist_y(gen);
+		p.x = p.x + velocity * (sin(p.theta + yaw_rate * delta_t) - sin(p.theta))/yaw_rate + dist_x(gen);
+		p.y = p.y + velocity * (cos(p.theta) - cos(p.theta + yaw_rate * delta_t))/yaw_rate + dist_y(gen);
 		p.theta += p.theta * yaw_rate + dist_theta(gen);
 	}
 }
@@ -79,9 +79,9 @@ void ParticleFilter::dataAssociation(std::vector<LandmarkObs> predicted, std::ve
 		double distance = DBL_MAX;
 		for (auto &pred: predicted) {
 			double temp = dist(obs.x, obs.y, pred.x, pred.y);
-			if (diff > temp) {
-				diff =  temp;
-				obs.id = landmark.id;
+			if (distance > temp) {
+				distance =  temp;
+				obs.id = pred.id;
 			}
 		}
 	}
@@ -118,13 +118,15 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
 		}
 
 		// coverting from vehicle to map system
-		std::vector<LandmarkObs> transformed_obs = transform(observations, p);
 		vector<LandmarkObs> transformed_obs;
 		for (auto &obs: observations) {
-			x_map = obs.x + (cos(p.theta) * obs.x) - (sin(p.theta) * obs.y);
-			y_map= obs.y + (sin(theta) * obs.x) + (cos(theta) * obs.y)
-			transformed_obs.x = x_map;
-			transformed_obs.y = y_map;
+			double x_map = obs.x + (cos(p.theta) * obs.x) - (sin(p.theta) * obs.y);
+			double y_map= obs.y + (sin(p.theta) * obs.x) + (cos(p.theta) * obs.y);
+			LandmarkObs landmark_obs;
+			landmark_obs.x = x_map;
+			landmark_obs.y = y_map;
+			landmark_obs.id = obs.id;
+			transformed_obs.push_back(landmark_obs);
 		}
 
 		dataAssociation(landmark_in_range, transformed_obs);
@@ -143,8 +145,8 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
 		double std_y = std_landmark[1];
 
 
-		gaussian_norm = 1/(2 * M_PI *  std_x * std_y);
-		exponent = sum_sqr_x_diff/(2 * std_x * std_x) + sum_sqr_y_diff/(2 * std_y * std_y);
+		double gaussian_norm = 1/(2 * M_PI *  std_x * std_y);
+		double exponent = sum_sqr_x_diff/(2 * std_x * std_x) + sum_sqr_y_diff/(2 * std_y * std_y);
 		p.weight = gaussian_norm * (exp(-exponent)) ;
 
 	}

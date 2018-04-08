@@ -30,7 +30,7 @@ List of Projects
 Development Setup
 ---
 
-To set up development environment for projects 0,1,2,3 and 4, follow instruction [here](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/env).
+To set up development environment for projects 0,1,2,3 and 4, follow instruction [here](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/env1).
 
 --- 
 Release History
