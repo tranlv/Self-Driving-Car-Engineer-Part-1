@@ -20,7 +20,11 @@ List of Projects
 
 * Project 4 - [Vehicle Detection and Tracking](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Vehicle%20Detection): Created a vehicle detection and tracking pipeline with OpenCV, histogram of oriented gradients (HOG), and support vector machines (SVM), optimizing and evaluating the model on video data from an automotive camera taken during highway driving - [Notebook](http://nbviewer.jupyter.org/gist/tranlyvu/3f15440e66a89c1b50bb4993878d1390).
 
-* Project 5 - [Extended Kalman Filter]
+* Project 5 - [Extended Kalman Filter](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Extended%20Kalman%20Filter): Utilized a kalman filter to estimate the state of a moving object of interest with noisy lidar and radar measurements.
+
+* Project 6 - [Unscented Kalman Filter](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Unscented%20Kalman%20Filter): Utilized an Unscented Kalman Filter to estimate the state of a moving object of interest with noisy lidar and radar measurements.
+
+* Project 7 - [Kidnapped Vehicle](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Kidnapped%20Vehicle): Implement a 2 dimensional particle filter in C++.
 
 ---
 Development Setup
