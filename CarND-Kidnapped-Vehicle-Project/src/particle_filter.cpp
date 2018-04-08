@@ -33,7 +33,9 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
 	normal_distribution<double> dist_y(y, std[1]);
 	normal_distribution<double> dist_theta(theta, std[2]);
 
-	particles = vector<Particle>(100);
+	num_particles = 100
+
+	particles = vector<Particle>(num_particles);
 
 	int id = 0;
 
@@ -79,6 +81,7 @@ void ParticleFilter::dataAssociation(std::vector<LandmarkObs> predicted, std::ve
 			double temp = dist(obs.x, obs.y, pred.x, pred.y);
 			if (diff > temp) {
 				diff =  temp;
+				obs.id = landmark.id;
 			}
 		}
 	}
@@ -99,7 +102,6 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
 	//   3.33
 	//   http://planning.cs.uiuc.edu/node99.html
 
-	gaussian_norm = 1/(2 * M_PI *  std_landmark[0] * std_landmark[1]);
 	//	x_map= x_part + (np.cos(theta) * x_obs) - (np.sin(theta) * y_obs)
 
 	for (auto &p: particles) {
@@ -115,12 +117,44 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
 			}
 		}
 
+		// coverting from vehicle to map system
 		std::vector<LandmarkObs> transformed_obs = transform(observations, p);
+		vector<LandmarkObs> transformed_obs;
+		for (auto &obs: observations) {
+			x_map = obs.x + (cos(p.theta) * obs.x) - (sin(p.theta) * obs.y);
+			y_map= obs.y + (sin(theta) * obs.x) + (cos(theta) * obs.y)
+			transformed_obs.x = x_map;
+			transformed_obs.y = y_map;
+		}
+
 		dataAssociation(landmark_in_range, transformed_obs);
 
-		exponent = pow(x_obs - mu[0],2)/(2 * std_landmark[0]) + pow(y_obs-mu_y, 2)/(2*std_landmark[1]);
-		weights[i] = gaussian_norm * exp(exponent) ;
+		double sum_sqr_x_diff = 0.0;
+		double sum_sqr_y_diff = 0.0;
 
+		for (auto &obs: transformed_obs) {
+			double x_diff = obs.x - landmark_in_range[obs.id].x;
+			double y_diff = obs.y - landmark_in_range[obs.id].y;
+			sum_sqr_x_diff += x_diff * x_diff;
+			sum_sqr_y_diff += y_diff * y_diff;
+		}
+
+		double std_x = std_landmark[0];
+		double std_y = std_landmark[1];
+
+
+		gaussian_norm = 1/(2 * M_PI *  std_x * std_y);
+		exponent = sum_sqr_x_diff/(2 * std_x * std_x) + sum_sqr_y_diff/(2 * std_y * std_y);
+		p.weight = gaussian_norm * (exp(-exponent)) ;
+
+	}
+
+	if  (weights.size() != num_particles) {
+		weights = std::vector<double>(num_particles);
+	}
+
+	for (int i =0; i < num_particles; i++) {
+		weights[i] = particles[i].weight;
 	}
 }
 
@@ -129,6 +163,14 @@ void ParticleFilter::resample() {
 	// NOTE: You may find std::discrete_distribution helpful here.
 	//   http://en.cppreference.com/w/cpp/numeric/random/discrete_distribution
 
+	std::discrete_distribution<int> dist_particles(weights.begin(), weights.end());
+	std::vector<Particle> resampled_particles;
+
+	for (int i = 0; i <num_particles; i++) {
+		resampled_particles.push_back(particles[dist_particles(gen)]);
+	}
+
+	particles = resampled_particles;
 }
 
 Particle ParticleFilter::SetAssociations(Particle& particle, const std::vector<int>& associations, 
