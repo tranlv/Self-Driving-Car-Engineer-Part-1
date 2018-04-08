@@ -24,7 +24,7 @@ List of Projects
 
 * Project 6 - [Unscented Kalman Filter](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Unscented%20Kalman%20Filter): Utilized an Unscented Kalman Filter to estimate the state of a moving object of interest with noisy lidar and radar measurements.
 
-* Project 7 - [Kidnapped Vehicle](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Kidnapped%20Vehicle): Implement a 2 dimensional particle filter in C++.
+* Project 7 - [Kidnapped Vehicle](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Kidnapped%20Vehicle): Implemented a 2 dimensional particle filter in C++.
 
 ---
 Development Setup
