@@ -212,8 +212,8 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
 				pr_id = landmark_in_range[k].id;
 
 				if (obs_id == pr_id) {
-					exponent = pow(pr_x - obs_x,2)/(2.0 * std_x_2) + pow(pr_y - obs_y,2)/(2.0 * std_y_2);
-					particles[i].weight *= gaussian_norm * (exp(-1.0* exponent)) ;
+					exponent = pow((pr_x - obs_x), 2)/(2.0 * std_x_2) + pow((pr_y - obs_y), 2)/(2.0 * std_y_2);
+					particles[i].weight *= gaussian_norm * exp(-1.0 * exponent) ;
 				}
 			}
 		}
