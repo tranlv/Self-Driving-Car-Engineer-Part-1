@@ -35,7 +35,7 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
 
 	num_particles = 100;
 
-	for (int i = 0; i< num_particles; i++) { //c11 loop for vector
+	for (int i = 0; i < num_particles; i++) { //c11 loop for vector
 		Particle p;
 		p.id = i;
 		p.x = dist_x(gen); // add noise
@@ -59,7 +59,7 @@ void ParticleFilter::prediction(double delta_t, double std_pos[], double velocit
 
 
 
-	for (int i =0; i< num_particles; i++) {
+	for (int i = 0; i< num_particles; i++) {
 		double pred_x;
 		double pred_y;
 		double pred_theta;
@@ -101,6 +101,7 @@ void ParticleFilter::dataAssociation(std::vector<LandmarkObs> predicted, std::ve
 	for (int i = 0; i < observations.size(); i++) {
 		
 		double lowest_distance =  numeric_limits<double>::max();
+		
 		int map_id = -1;
 		double obs_x = observations[i].x;
 		double obs_y = observations[i].y;
@@ -109,9 +110,10 @@ void ParticleFilter::dataAssociation(std::vector<LandmarkObs> predicted, std::ve
 			double pred_x = predicted[j].x;
 		 	double pred_y = predicted[j].y;
 		  	int pred_id = predicted[j].id;
+
 			double temp = dist(obs_x, obs_y, pred_x, pred_y);
 
-			if (lowest_distance > temp) {
+			if (temp < lowest_distance) {
 				lowest_distance =  temp;
 				map_id = pred_id;
 			}
