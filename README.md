@@ -26,7 +26,7 @@ List of Projects
 
 * Project 7 - [Kidnapped Vehicle](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Kidnapped%20Vehicle): Implemented a 2 dimensional particle filter in C++.
 
-* Project 8 - [PID Control](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/Kidnapped%20Vehicle): Implemented a PID controller in C++ to maneuver the vehicle around the track.
+* Project 8 - [PID Control](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/PID%20Control): Implemented a PID controller in C++ to maneuver the vehicle around the track.
 
 
 ---
