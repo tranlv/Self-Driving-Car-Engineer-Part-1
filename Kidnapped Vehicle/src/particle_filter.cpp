@@ -69,7 +69,7 @@ void ParticleFilter::prediction(double delta_t, double std_pos[], double velocit
 		double p_theta = particles[i].theta;
 
 
-		if (yaw_rate != 0.0) {
+		if (abs(yaw_rate) == 0) {
 			pred_x = p_x + velocity * delta_t * cos(p_theta);
 			pred_y = p_y + velocity * delta_t * sin(p_theta);
 			pred_theta = p_theta;
@@ -77,7 +77,7 @@ void ParticleFilter::prediction(double delta_t, double std_pos[], double velocit
 		else {
 			pred_x = p_x + velocity * (sin(p_theta + yaw_rate * delta_t) - sin(p_theta))/yaw_rate ;
 			pred_y = p_y + velocity * (cos(p_theta) - cos(p_theta + yaw_rate * delta_t))/yaw_rate ; 
-			pred_theta = p_theta + (p_theta * yaw_rate);
+			pred_theta = p_theta + delta_t * yaw_rate;
 		}
 
 
@@ -111,7 +111,7 @@ void ParticleFilter::dataAssociation(std::vector<LandmarkObs> predicted, std::ve
 		 	double pred_y = predicted[j].y;
 		  	int pred_id = predicted[j].id;
 
-			double temp = dist(obs_x, obs_y, pred_x, pred_y);
+			double temp = dist(pred_x, pred_y,obs_x, obs_y);
 
 			if (temp < lowest_distance) {
 				lowest_distance =  temp;
