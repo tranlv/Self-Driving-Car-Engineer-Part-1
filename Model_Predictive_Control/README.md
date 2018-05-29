@@ -1,7 +1,9 @@
 # CarND-Controls-MPC
-Self-Driving Car Engineer Nanodegree Program
-
 ---
+
+## Overview
+
+Implemented Model Predictive Control to drive the car around the track.
 
 ## Dependencies
 
