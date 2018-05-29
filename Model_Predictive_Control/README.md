@@ -1,5 +1,4 @@
-# CarND-Controls-MPC
----
+# ** Model Predictive Control** 
 
 ## Overview
 
@@ -50,7 +49,7 @@ is the vehicle starting offset of a straight line (reference). If the MPC implem
 4.  Tips for setting up your environment are available [here](https://classroom.udacity.com/nanodegrees/nd013/parts/40f38239-66b6-46ec-ae68-03afd8a601c8/modules/0949fca6-b379-42af-a919-ee50aa304e6a/lessons/f758c44c-5e40-4e01-93b5-1a82aa4e044f/concepts/23d376c7-0195-4276-bdf0-e02f1f3c665d)
 5. **VM Latency:** Some students have reported differences in behavior using VM's ostensibly a result of latency.  Please let us know if issues arise as a result of a VM environment.
 
-## Write-up
+## Project Write-up
 
 1. The Model: The model is the kinematic model. The parameters include the vehicle's x and y coordinates, orientation angle , velocity, the cross-track error and psi error. Actuator outputs are acceleration and delta (steering angle). The model combines the state and actuations from the previous timestep to calculate the state for the current timestep based on the equations from kinematic model lecture.
 
