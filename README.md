@@ -28,6 +28,7 @@ List of Projects
 
 * Project 8 - [PID Control](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/PID%20Control): Implemented a PID controller in C++ to maneuver the vehicle around the track.
 
+* Project 9 - [Model Predictive Control](https://github.com/tranlyvu/autonomous-vehicle-projects/tree/master/PID%20Control): Implemented a PID controller in C++ to maneuver the vehicle around the track.
 
 ---
 Development Setup
