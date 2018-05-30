@@ -53,7 +53,7 @@ is the vehicle starting offset of a straight line (reference). If the MPC implem
 
 1. The Model: The model is the kinematic model. The parameters include the vehicle's x and y coordinates, orientation angle , velocity, the cross-track error and psi error. Actuator outputs are acceleration and delta (steering angle). The model combines the state and actuations from the previous timestep to calculate the state for the current timestep based on the equations from kinematic model lecture.
 
-2. Timestep Length and Elapsed Duration (N & dt): The values chosen for N and dt are 10 and 0.1. This was chosen based on trial and errors.
+2. Timestep Length and Elapsed Duration (N & dt): The values chosen for N and dt are 10 and 0.1. This was chosen based on trial and errors, i.e. 25/0.05, 20/0.1, etc
 
 3. Polynomial Fitting and MPC Preprocessing: The waypoints are preprocessed by transforming them to the vehicle's perspective. This simplifies the process to fit a polynomial to the waypoints because the vehicle's x and y coordinates are now at the origin (0, 0) and the orientation angle is also zero.
 
