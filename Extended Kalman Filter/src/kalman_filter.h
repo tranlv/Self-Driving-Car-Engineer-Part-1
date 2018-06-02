@@ -11,7 +11,7 @@ public:
   // state covariance matrix
   Eigen::MatrixXd P_;
 
-  // state transition matrix
+  // state transistion matrix
   Eigen::MatrixXd F_;
 
   // process covariance matrix
@@ -64,6 +64,8 @@ public:
    */
   void UpdateEKF(const Eigen::VectorXd &z);
 
+private:
+  void UpdateCommon(const Eigen::VectorXd &y);
 };
 
 #endif /* KALMAN_FILTER_H_ */
