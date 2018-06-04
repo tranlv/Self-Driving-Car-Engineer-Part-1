@@ -52,5 +52,9 @@ Tips for setting up your environment can be found [here](https://classroom.udaci
 
 * I use twiddle to tune the parameters. I find it easier to tune P and D component first and I later, however in the submitted code I twiddle all three at the same time. To get the performance for a set of parameters, I run the simulations for 1000 "messages". I reset the simulator every time starting a new round fo twiddle.
 
+3. [Video](https://youtu.be/xIe8pDCb8tI)
+
+
+
 
 
