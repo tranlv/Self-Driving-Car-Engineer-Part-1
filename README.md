@@ -1,14 +1,12 @@
 # **Self-Driving Car Engineer - Part 1**
 
-Self-Driving Car Engineer Nanodegree - Part 1 projects.
+The repo contains projects from Self-Driving Car Engineer Nanodegree - Part 1 : Computer Vision and Deep Learning
 
 <img src="img/self-driving-car.jpg" width="480" alt="Combined Image" />
 
 ---
 List of Projects
 ---
-
-### [Self-Driving Car Engineer Nanodegree Part 1](https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013) 
 
 * Project 0 - [Finding Lane Lines](https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1/tree/master/Advanced%20Lane%20Lines): Detect lane lines in images using Python and OpenCV - [Notebook](http://nbviewer.jupyter.org/gist/tranlyvu/df59fa9ea4a18f373947ca5c04bec801).
 
