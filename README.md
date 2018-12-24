@@ -9,11 +9,11 @@ Table of contents
 ---
 
 1. [List of Projects](#List-of-Projects)
-1. [Development Setup](#Development-Setup)
-1. [Release History](#Release-History)
-1. [Contribution](#Contribution)
-1. [Contact](#Contact)
-1. [License](#License)
+2. [Development Setup](#Development-Setup)
+3. [Release History](#Release-History)
+4. [Contribution](#Contribution)
+5. [Contact](#Contact)
+6. [License](#License)
 
 ---
 List of Projects
