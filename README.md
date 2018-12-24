@@ -1,6 +1,6 @@
 # **Self-Driving Car Engineer - Part 1**
 
-The repo contains projects from Self-Driving Car Engineer Nanodegree - Part 1 : Computer Vision and Deep Learning
+Projects from Self-Driving Car Engineer Nanodegree - Part 1 : Computer Vision and Deep Learning
 
 <img src="img/self-driving-car.jpg" width="480" alt="Combined Image" />
 
@@ -22,14 +22,15 @@ List of Projects
 Development Setup
 ---
 
-To set up development environment for projects 0,1,2,3 and 4, follow instruction [here](https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1/tree/master/env1).
+To set up development environment, follow instruction [here](https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1/tree/master/env1).
 
 --- 
 Release History
 ---
 
-I do not keep track of release history for this repo.
-
+* v1.0.0 (24 Dec 2018)
+	* First official release
+	
 ---
 Contribution
 ---
@@ -38,13 +39,29 @@ Contributions are welcome! For bug reports or requests please submit an [issue](
 
 For new feature contribution, please follow the following instruction:
 
-```
-1. Fork the repo (`$git clone https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1.git)
-2. Create your feature branch (`git checkout -b new/your-feature`)
-3. Commit your changes (`git commit -am 'Add some new feature'`)
-4. Push to the branch (`git push origin new/your-feature`)
-5. Create a new Pull Request at https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1/pulls
-```
+1. Fork the repo https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1.git to your own github
+
+2. Clone from your own repo
+
+`$ git clone https://github.com/<your name>/Self-Driving-Car-Engineer-Part-1.git`
+
+3. Make sure you are at dev branch 
+
+`$ git checkout dev && git pull`
+
+4. Create your feature/bug-fix branch
+
+`$ git checkout -b <feature/bug>/<branch-name>`
+
+5. Commit your changes 
+
+`$ git commit -am 'Add some new feature'`
+
+6. Push to the branch 
+
+`$ git push`
+
+7. Go to your own repo and create a new Pull Request against 'dev' branch
 
 ---
 Contact
@@ -52,6 +69,7 @@ Contact
 
 Feel free to contact me to discuss any issues, questions, or comments.
 *  Email: vutransingapore@gmail.com
+*  Linkedln: [@vutransingapore](https://www.linkedin.com/in/tranlyvu/)
 *  GitHub: [Tran Ly Vu](https://github.com/tranlyvu)
 
 ---
