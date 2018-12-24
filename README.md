@@ -5,6 +5,17 @@ Projects from Self-Driving Car Engineer Nanodegree - Part 1 : Computer Vision an
 <img src="img/self-driving-car.jpg" width="480" alt="Combined Image" />
 
 ---
+Table of contents
+---
+
+1. [List of Projects](#List-of-Projects)
+1. [Development Setup](#Development-Setup)
+1. [Release History](#Release-History)
+1. [Contribution](#Contribution)
+1. [Contact](#Contact)
+1. [License](#License)
+
+---
 List of Projects
 ---
 
