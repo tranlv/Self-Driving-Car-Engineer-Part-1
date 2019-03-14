@@ -31,7 +31,7 @@ For new feature contribution, please follow the following instruction:
 8. To sync your forked repo with my repo
 
 ```
-$ git remote add upstream https://github.com/tranlyvu/wiki-link.git
+$ git remote add upstream https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1.git
 $ git checkout master
 $ git merge upstream/master
 ```
