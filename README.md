@@ -1,8 +1,20 @@
-# **Self-Driving Car Engineer - Part 1**
+# **Self-Driving Car Engineer - Part 1** [![HitCount](http://hits.dwyl.io/tranlyvu/Self-Driving-Car-Engineer-Part-1.svg)](http://hits.dwyl.io/tranlyvu/Self-Driving-Car-Engineer-Part-1) [![star this repo](http://githubbadges.com/star.svg?user=tranlyvu&repo=Self-Driving-Car-Engineer-Part-1&style=default)](https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1) [![fork this repo](http://githubbadges.com/fork.svg?user=tranlyvu&repo=Self-Driving-Car-Engineer-Part-1&style=default)](https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1/fork)
 
 Projects from Self-Driving Car Engineer Nanodegree - Part 1 : Computer Vision and Deep Learning
 
+The project is at version [v1.0.0](https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1/releases), also see [change log](https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1/blob/dev/CHANGELOG.md) for more details on release history.
+
+If you like my project, feel fee to leave a few words of appreciation here [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/tranlyvu)
+
 <img src="img/self-driving-car.jpg" width="480" alt="Combined Image" />
+
+---
+Table of contents
+---
+
+1. [List of Projects](#List-of-Projects)
+2. [Contribution](#Contribution)
+3. [License](#License)
 
 ---
 List of Projects
@@ -19,58 +31,16 @@ List of Projects
 * Project 4 - [Vehicle Detection and Tracking](https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1/tree/master/Vehicle%20Detection): Created a vehicle detection and tracking pipeline with OpenCV, histogram of oriented gradients (HOG), and support vector machines (SVM), optimizing and evaluating the model on video data from an automotive camera taken during highway driving - [Notebook](http://nbviewer.jupyter.org/gist/tranlyvu/3f15440e66a89c1b50bb4993878d1390).
 
 ---
-Development Setup
+Contribution [![Open Source Helpers](https://www.codetriage.com/tranlyvu/self-driving-car-engineer-part-1/badges/users.svg)](https://www.codetriage.com/tranlyvu/self-driving-car-engineer-part-1)
 ---
+
+Please follow [contribution instruction](https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1/blob/dev/CONTRIBUTING.md) and [code of conduct](https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1/blob/dev/CODE-OF-CONDUCT.md)
+
+Please check out the [issues](https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1/issues) for list of issues that required helps.
+
+### Development Setup
 
 To set up development environment, follow instruction [here](https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1/tree/master/env1).
-
---- 
-Release History
----
-
-* v1.0.0 (24 Dec 2018)
-	* First official release
-	
----
-Contribution
----
-
-Contributions are welcome! For bug reports or requests please submit an [issue](https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1/issues).
-
-For new feature contribution, please follow the following instruction:
-
-1. Fork the repo https://github.com/tranlyvu/Self-Driving-Car-Engineer-Part-1.git to your own github
-
-2. Clone from your own repo
-
-`$ git clone https://github.com/<your name>/Self-Driving-Car-Engineer-Part-1.git`
-
-3. Make sure you are at dev branch 
-
-`$ git checkout dev && git pull`
-
-4. Create your feature/bug-fix branch
-
-`$ git checkout -b <feature/bug>/<branch-name>`
-
-5. Commit your changes 
-
-`$ git commit -am 'Add some new feature'`
-
-6. Push to the branch 
-
-`$ git push`
-
-7. Go to your own repo and create a new Pull Request against 'dev' branch
-
----
-Contact
----
-
-Feel free to contact me to discuss any issues, questions, or comments.
-*  Email: vutransingapore@gmail.com
-*  Linkedln: [@vutransingapore](https://www.linkedin.com/in/tranlyvu/)
-*  GitHub: [Tran Ly Vu](https://github.com/tranlyvu)
 
 ---
 License
